@@ -15,6 +15,18 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <style>
+            body{
+      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
+      background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        height: 100vh !important;
+
+    }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -59,7 +71,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-            
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -67,7 +79,7 @@
                                         Profile
                                     </a>
                                 </div>
-                                
+
                             </li>
 
                         @endguest

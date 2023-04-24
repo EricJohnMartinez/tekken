@@ -1,10 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        body {
-            background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg')
-        }
+<style>
+    body{
+      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
+      background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        height: 100vh !important;
+
+
+
+
+
+    }
+
     </style>
     <div class="jumbotron jumbotron-fluid text-white">
         <div class="container">
@@ -73,6 +85,7 @@
                     </script>
                 @endif
             </div>
+
 
             <div class="col-md-8">
                 <div class="row">

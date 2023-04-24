@@ -53,7 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     ];
 
     protected $appends = [
-        'created_at_formatted',
+        // 'created_at_formatted',
         'media_url',
     ];
 
