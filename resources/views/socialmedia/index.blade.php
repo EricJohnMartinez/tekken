@@ -10,7 +10,7 @@
       <div class="card p-4 m-5 row">
           <div class="mb-4 fw-bold fs-2 p-0">Post</div>
             @csrf
-            <textarea rows="15" name="post" rows="2" placeholder="What's on your mind?"
+            <textarea rows="8" name="post" placeholder="What's on your mind?" style="resize: none;"
                 class="form-control @error('post') is-invalid @enderror"></textarea>
             @error('post')
                 <span class="invalid-feedback" role="alert">
