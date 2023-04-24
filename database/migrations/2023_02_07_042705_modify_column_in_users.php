@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('home_address')->nullable()->change();
             $table->string('work_address')->nullable()->change();
             $table->integer('age')->nullable()->change();
-            $table->string('id_number')->nullable()->change();
+            $table->string('department')->nullable()->change();
         });
     }
 

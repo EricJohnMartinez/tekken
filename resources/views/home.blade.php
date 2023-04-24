@@ -3,8 +3,20 @@
 @section('content')
 <style>
     body{
-      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg')
+      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
+      background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        height: 100vh !important;
+
+
+
+
+
     }
+
     </style>
 <div class="jumbotron jumbotron-fluid text-white">
     <div class="container">
@@ -67,13 +79,13 @@
                     </script>
                 @endif
             </div>
-            
+
             <div class="col-md-8">
                 <div class="row">
                     <div class="col">
                         @if (!auth()->user()->approved)
                         <div class="col-md-8">
-                
+
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
@@ -81,7 +93,7 @@
                             @endif
                             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
                             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
-                            
+
                             <script>
                                 Swal.fire({
                                     position: 'center',
@@ -91,8 +103,8 @@
                                     confirmButtonText: '{{ __('OK') }}',
                                 });
                             </script>
-                            
-                </div> 
+
+                </div>
                         @endif
                     </div>
                 </div>
@@ -219,14 +231,14 @@
         $('.modal-body').find('.alert').remove();
         $('.modal-body').find('.is-invalid').removeClass('is-invalid');
       });
-  
+
       // Submit the form when the "Create" button is clicked
       $('#createJobModal').on('click', '#createJobBtn', function(e) {
         e.preventDefault();
         var form = $(this).closest('form');
         var url = form.attr('action');
         var formData = new FormData(form[0]);
-        
+
         $.ajax({
           url: url,
           type: 'POST',

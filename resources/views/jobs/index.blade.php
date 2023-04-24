@@ -4,7 +4,14 @@
 @section('content')
 <style>
     body{
-      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg')
+      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
+      background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        height: 100vh !important;
+
     }
     </style>
 <div class="jumbotron jumbotron-fluid text-white">
@@ -38,7 +45,7 @@
       </div>
     </div>
   </div>
-    
+
     <!-- Modal -->
 <div class="modal fade" id="createJobModal" tabindex="-1" aria-labelledby="createJobModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -114,7 +121,7 @@
                   </span>
               @enderror
           </div>
-          
+
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
                 <input name="email" value="{{old('email')}}" type="email" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1"  placeholder="name@example.com">
@@ -160,14 +167,14 @@
         $('.modal-body').find('.alert').remove();
         $('.modal-body').find('.is-invalid').removeClass('is-invalid');
       });
-  
+
       // Submit the form when the "Create" button is clicked
       $('#createJobModal').on('click', '#createJobBtn', function(e) {
         e.preventDefault();
         var form = $(this).closest('form');
         var url = form.attr('action');
         var formData = new FormData(form[0]);
-        
+
         $.ajax({
           url: url,
           type: 'POST',
@@ -263,10 +270,10 @@
                         @endforeach
                         {{ $jobs->links() }}
                       </div>
-                      
+
                       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
                       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css" />
-                      
+
                       <script>
                       function deleteJob(jobId) {
                         Swal.fire({

@@ -8,8 +8,10 @@
                 <div class="card-body ">
                     <div class="row">
                         <div class="col-md-3">
-                        @if ($user->getFirstMediaUrl('photos'))
-                            <img src="{{$user['media_url']}}" alt="Profile Photo" class="rounded-circle w-100">
+                            {{  Auth::user()->media_url }}
+                        @if (Auth::user()->media_url)
+                            <img style="    height: 170px;
+                            object-fit: contain;" src="{{  Auth::user()->media_url }}" alt="Profile Photo" class="img-thumbnail rounded-circle w-100">
                         @else
                             <img src="https://via.placeholder.com/150" alt="Profile Photo" class="rounded-circle w-100">
                         @endif
@@ -36,9 +38,27 @@
                     </div>
                     <div class="col-md-9">
                         <h2>{{ Auth::user()->name }}</h2>
-                        <form action="{{ route('userprofile.update', Auth::user()->id)}}" method="post">
+                        <form action="{{ route('userprofile.update', Auth::user()->id)}}" method="post"  enctype="multipart/form-data"  >
                             @csrf
                             @method('PUT')
+
+                            <div class="mb-3">
+                                <label for="photo" class="form-label">
+                                    @if ($user->getFirstMediaUrl('photos'))
+                                        Change Photo
+                                    @else
+                                        Upload Photo
+                                    @endif
+                                </label>
+                                <input type="file" name="photo" id="photo" accept="image/*">
+                                @error('photo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" class="form-control">
