@@ -198,10 +198,10 @@
                                                 <div class="col-md-4">
                                                     @if (is_null($announcement->media_url))
                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
-                                                            alt="" class="card-img">
+                                                            alt="" class="card-img img-thumbnail" style="height: 180px; object-fit: contain">
                                                     @else
                                                         <img src="{{ $announcement->media_url }}" alt=""
-                                                            class="card-img">
+                                                            class="card-img img-thumbnail" style="height: 180px; object-fit: contain">
                                                     @endif
                                                 </div>
                                                 <div class="col-md-8">
