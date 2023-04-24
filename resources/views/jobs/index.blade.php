@@ -146,7 +146,7 @@
             </div>
             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
             <div class="mb-3">
-                <input name="submit" type="submit" class="btn btn-primary"/>
+                <input name="submit" type="submit" class="btn btn-primary float-right"/>
             </div>
           </form>
         </div>
@@ -236,26 +236,32 @@
                         <div class="card mb-3">
                           <div class="card-body">
                             <div class="row">
-                              <div class="col-md-4 ">
+                              <div class="col-md-4">
                                 @if (is_null($job->media_url))
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="" class="img-thumbnail">
+                                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="" class="img-thumbnail">
                                 @else
-                                <img src="{{$job->media_url}}" alt="" class="img-thumbnail">
+                                  <img src="{{$job->media_url}}" alt="" class="img-thumbnail">
                                 @endif
                               </div>
                               <div class="col-md-8">
-                                <h5 class="card-title">{{$job->title}}</h5>
+                                <div>
+
+                                  <div class="d-flex justify-content-between">
+                                    <h5 class="card-title pt-2">{{$job->title}}</h5>
+                                    <div>
+                                      <a href="{{route('jobs.show', $job->id)}}" class="btn btn-light border">View</a>
+                                      @if (!auth()->user()->hasRole('alumni'))
+                                      <a href="{{route('jobs.edit', $job->id)}}" class="btn btn-primary">Edit</a>
+                                      <button class="btn btn-danger" onclick="deleteJob({{$job->id}})">Delete</button>
+                                      @endif
+                                    </div>
+                                  </div>
+                                </div>
                                 <p class="card-text">{{$job->created_at_formatted}}</p>
                                 @if(auth()->user()->hasRole('admin'))
                                 <p class="card-text">Created by {{$job->user->name}}</p>
                                 @endif
-                                <div class="d-flex justify-content-between">
-                                  <a href="{{route('jobs.show', $job->id)}}" class="btn btn-light bordered">View</a>
-                                  @if (!auth()->user()->hasRole('alumni'))
-                                  <a href="{{route('jobs.edit', $job->id)}}" class="btn btn-primary">Edit</a>
-                                  <button class="btn btn-danger" onclick="deleteJob({{$job->id}})">Delete</button>
-                                  @endif
-                                </div>
+                                
                               </div>
                             </div>
                           </div>

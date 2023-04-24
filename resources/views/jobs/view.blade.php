@@ -215,7 +215,7 @@
                             <p class="card-text"><strong>Location:</strong> {{$job->location}}</p>
                             <p class="card-text"><strong>Email:</strong> {{$job->email}}</p>
                             <p class="card-text"><strong>Website/Page:</strong> {{$job->website}}</p>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#applyModal">Apply</button>
+                            <button class="btn btn-primary align-self-end" data-toggle="modal" data-target="#applyModal">Apply</button>
                         </div>
                     </div>
                 </div>
