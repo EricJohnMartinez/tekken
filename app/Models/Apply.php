@@ -38,4 +38,9 @@ class Apply extends Model implements HasMedia
 
         return null;
     }
+    public function job()
+{
+    return $this->belongsTo(Job::class);
+}
+
 }

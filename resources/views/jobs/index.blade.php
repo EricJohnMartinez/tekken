@@ -2,49 +2,13 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    body{
-      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
-      background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top center;
-            border-top-right-radius: 8px;
-            border-top-left-radius: 8px;
-        height: 100vh !important;
 
-    }
-    </style>
-<div class="jumbotron jumbotron-fluid text-white">
-    <div class="container">
-      <h1 class="display-4 text-center">Welcome to MinSU-AlumConnect</h1>
-      <p class="lead text-center">Discover the latest job opportunities and announcements.</p>
-      <div class="d-flex justify-content-center mt-4">
-        @if (!auth()->user()->approved)
-        @else
-        @if (auth()->user()->hasRole('admin'))
-        <a href="#" class="btn btn-outline-light mx-3 mb-4" data-toggle="modal" data-target="#createJobModal">Create Job</a>
-        <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4">Job Offers</a>
-        <a href="{{ route('socialmedia.index') }}" class="btn btn-outline-light mx-3 mb-4">AlumnConnect</a>
-        <a href="{{ route('admin.pending-users') }}" class="btn btn-outline-light mx-3 mb-4">View Pending Users</a>
-        <a href="{{ route('announcements.create') }}" class="btn btn-outline-light mx-3 mb-4">Create Announcement</a>
-        <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4">Announcements </a>
-        {{--<a href="{{ route('socialmedia.create') }}" class="btn btn-outline-light mx-3">AlumnConnect </a>--}}
-        @endif
-        @if (auth()->user()->hasRole('alumni'))
-        <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4">Job Offers</a>
-        <a href="{{ route('socialmedia.index') }}" class="btn btn-outline-light mx-3 mb-4">AlumnConnect</a>
-        <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4">Announcements </a>
-        {{--<a href="{{ route('socialmedia.create') }}" class="btn btn-outline-light mx-3">AlumnConnect </a>--}}
-        @endif
-        @if (auth()->user()->hasRole('employer'))
-        <a href="#" class="btn btn-outline-light mx-3 mb-4" data-toggle="modal" data-target="#createJobModal">Create Job</a>
-        <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4">Job Offers</a>
-        {{--<a href="{{ route('socialmedia.create') }}" class="btn btn-outline-light mx-3">AlumnConnect </a>--}}
-        @endif
-        @endif
-      </div>
-    </div>
-  </div>
+  <div class="mb-4">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#createJobModal">
+        Post a Job
+    </button>
+</div>
 
     <!-- Modal -->
 <div class="modal fade" id="createJobModal" tabindex="-1" aria-labelledby="createJobModalLabel" aria-hidden="true">
@@ -239,7 +203,7 @@
                         </div>
                     @endif
                     <div class="card-columns">
-                        @foreach ($jobs as $job)
+                      @foreach ($jobs as $job)
                         <div class="card mb-3">
                           <div class="card-body">
                             <div class="row">
@@ -252,7 +216,6 @@
                               </div>
                               <div class="col-md-8">
                                 <div>
-
                                   <div class="d-flex justify-content-between">
                                     <h5 class="card-title pt-2">{{$job->title}}</h5>
                                     <div>
@@ -260,7 +223,9 @@
                                       @if (!auth()->user()->hasRole('alumni'))
                                       <a href="{{route('jobs.edit', $job->id)}}" class="btn btn-primary">Edit</a>
                                       <button class="btn btn-danger" onclick="deleteJob({{$job->id}})">Delete</button>
+                                      <a href="{{route('jobs.applicants', $job->id)}}" class="btn btn-info">View Applicants</a>
                                       @endif
+                                       <!-- new button -->
                                     </div>
                                   </div>
                                 </div>
@@ -268,14 +233,14 @@
                                 @if(auth()->user()->hasRole('admin'))
                                 <p class="card-text">Created by {{$job->user->name}}</p>
                                 @endif
-                                
                               </div>
                             </div>
                           </div>
                         </div>
-                        @endforeach
-                        {{ $jobs->links() }}
-                      </div>
+                      @endforeach
+                      {{ $jobs->links() }}
+                    </div>
+
 
                       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
                       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css" />

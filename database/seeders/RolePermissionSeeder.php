@@ -32,7 +32,6 @@ class RolePermissionSeeder extends Seeder
                 'show user',
                 'view user',
 
-
                 'access announcement',
                 'destroy announcement',
                 'edit announcement',

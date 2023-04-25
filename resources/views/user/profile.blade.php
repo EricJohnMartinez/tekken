@@ -10,7 +10,7 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="text-center">
-                  <img src="{{ $user->profile_image }}" class="img-fluid rounded-circle" alt="Profile Image">
+                  <img src="{{ $user->media_url }}" class="img-fluid rounded-circle" alt="Profile Image">
                 </div>
               </div>
               <div class="col-sm-8">

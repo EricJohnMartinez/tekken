@@ -8,7 +8,6 @@
                 <div class="card-body ">
                     <div class="row">
                         <div class="col-md-3">
-                            {{  Auth::user()->media_url }}
                         @if (Auth::user()->media_url)
                             <img style="    height: 170px;
                             object-fit: contain;" src="{{  Auth::user()->media_url }}" alt="Profile Photo" class="img-thumbnail rounded-circle w-100">

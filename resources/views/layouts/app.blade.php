@@ -24,7 +24,6 @@
             border-top-right-radius: 8px;
             border-top-left-radius: 8px;
         height: 100vh !important;
-
     }
     </style>
 </head>
@@ -32,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-white" href="{{ url('/home') }}">
+                <a class="navbar-brand text-white " onclick="updateTitle('Welcome to MinSU-AlumnConnect')" href="{{ url('/home') }}">
                     AlumnConnect
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -79,18 +78,62 @@
                                         Profile
                                     </a>
                                 </div>
-
                             </li>
-
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
+        <div class="jumbotron jumbotron-fluid text-white">
+            <div class="container">
+                <h1 class="display-4 text-center" id="page-title">Welcome to MinSU-AlumConnect</h1>
+                <p class="lead text-center">Discover the latest job opportunities and announcements.</p>
+                <div class="d-flex justify-content-center mt-4">
+                    @if (!auth()->user()->approved)
+                    <p class="text-center">Please wait for admin approval.</p>
+                    @else
+                    @if (auth()->user()->hasRole('admin'))
+                            <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Job Offers')" id="job-offers-link">Job Offers</a>
+                            <a href="{{ route('userprofile.userIndex') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Users')" id="users-link">Users</a>
+                            <a href="{{ route('socialmedia.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('AlumnConnect')" id="alumnconnect-link">AlumnConnect</a>
+                            <a href="{{ route('admin.pending-users') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Pending Users')" id="pending-users-link">View Pending Users</a>
+                            <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Announcements')" id="announcements-link">Announcements</a>
+                        @endif
+                        @if (auth()->user()->hasRole('alumni'))
+                            <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Job Offers')" id="job-offers-link">Job Offers</a>
+                            <a href="{{ route('socialmedia.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('AlumnConnect')" id="alumnconnect-link">AlumnConnect</a>
+                            <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Announcements')" id="announcements-link">Announcements</a>
+                        @endif
+                        @if (auth()->user()->hasRole('employer'))
+                            <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Job Offers')" id="job-offers-link">Job Offers</a>
+                            <a href="{{ route('userprofile.userIndex') }}" class="btn btn-outline-light mx-3 mb-4" onclick="updateTitle('Users')" id="users-link">Users</a>
+                        @endif
+                    @endif
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function updateTitle(newTitle) {
+                document.getElementById("page-title").innerHTML = newTitle;
+                localStorage.setItem("page-title", newTitle);
+            }
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                var pageTitle = localStorage.getItem("page-title");
+                if (pageTitle !== null) {
+                    document.getElementById("page-title").innerHTML = pageTitle;
+                }
+            });
+            </script>
+        
+        
 
-        <main class="py-4">
+        <main class="py-4 container">
             @yield('content')
         </main>
-    </div>
+       
 </body>
+
+
 </html>

@@ -57,6 +57,12 @@ class Job extends Model implements HasMedia
         return null;
     }
 
+    public function applicants()
+    {
+        return $this->hasMany(Apply::class);
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

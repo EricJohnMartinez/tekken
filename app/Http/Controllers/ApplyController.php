@@ -44,7 +44,7 @@ class ApplyController extends Controller
         if ($request->has('resume')) {
             $apply->addMediaFromRequest('resume')->toMediaCollection('resume');
         }
-
+        
         $jobs = Job::paginate(10);
 
         session()->flash('success', 'Application Success');
@@ -62,7 +62,10 @@ class ApplyController extends Controller
      */
     public function show($id)
     {
-        //
+        $job = Job::findOrFail($id);
+        $applications = Apply::where('job_id', $job->id)->get();
+    
+        return view('job.show', compact('job', 'apply'));
     }
 
     /**

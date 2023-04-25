@@ -2,8 +2,8 @@
 
 @section('content')
 <form action="{{ route('userIndex') }}" method="GET" class="mb-4">
-    <div class="row">
-      <div class="col-md-6 mb-3">
+    <div class="row container">
+      <div class="col-md-6 mb-3 ">
         <input type="text" class="form-control" name="keyword" placeholder="Search users..." value="{{ $keyword ?? '' }}">
       </div>
       <div class="col-md-4 mb-3">

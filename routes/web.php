@@ -58,6 +58,7 @@ Route::middleware(['auth', 'verified', 'approved'])->group(function () {
 
     Route::resource('/jobs', JobController::class);
     Route::get('/jobs/{job}/apply', [JobController::class, 'goToJobApply'])->name('jobs.apply');
+    Route::get('/jobs/{job}/applicants', [JobController::class, 'applicants'])->name('jobs.applicants');
     Route::get('/delete/job/{job}', [JobController::class, 'delete'])->name('jobs.delete');
 
     Route::resource('/apply', ApplyController::class);

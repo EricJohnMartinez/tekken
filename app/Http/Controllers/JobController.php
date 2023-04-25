@@ -123,6 +123,13 @@ class JobController extends Controller
 
     }
 
+    public function applicants(Job $job)
+    {
+        abort_if(!auth()->user()->can('access job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
+        $applicants = $job->applicants()->paginate(10);
+        return view('jobs.applicants', compact('job', 'applicants'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
