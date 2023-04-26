@@ -19,6 +19,12 @@
                             <form action="{{ route('userprofile.edit', Auth::user()->id)}}" method="get">
                                 <button type="submit" class="btn btn-primary">Edit Profile</button>
                             </form>
+                           
+                        </div>
+                        <div>
+                            <form action="{{ route('userprofile.edit', Auth::user()->id)}}" method="get">
+                                <button type="submit" class="btn btn-primary">Survey</button>
+                            </form>
                         </div>
                     </div>
                 </div>
