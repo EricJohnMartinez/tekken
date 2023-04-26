@@ -80,4 +80,19 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
 
         return null;
     }
+
+    public function surveyStatus()
+    {
+        $survey = Survey::where('user_id', $this->id)->first();
+        if ($survey) {
+            if ($survey->status === 'completed') {
+                return 'completed';
+            } else {
+                return 'in_progress';
+            }
+        } else {
+            return 'not_started';
+        }
+    }
+    
 }

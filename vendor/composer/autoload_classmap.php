@@ -44,6 +44,7 @@ return array(
     'App\\Models\\Apply' => $baseDir . '/app/Models/Apply.php',
     'App\\Models\\Job' => $baseDir . '/app/Models/Job.php',
     'App\\Models\\SocialMedia' => $baseDir . '/app/Models/SocialMedia.php',
+    'App\\Models\\Survey' => $baseDir . '/app/Models/Survey.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UserProfile' => $baseDir . '/app/Models/UserProfile.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

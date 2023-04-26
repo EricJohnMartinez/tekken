@@ -69,6 +69,8 @@ Route::middleware(['auth', 'verified', 'approved'])->group(function () {
     Route::get('userprofile.view', [UserController::class, 'userIndex'])->name('userprofile.userIndex');
     Route::get('/users', [UserController::class, 'userIndex'])->name('userIndex');
     Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile');
+    Route::post('/survey', [UserController::class, 'survey'])->name('survey');
+    Route::put('/survey/{id}', [UserController::class, 'updateSurvey'])->name('survey.update');
 
 
     Route::prefix('admin')->name('admin.')->middleware('auth:sanctum')->group(function () {

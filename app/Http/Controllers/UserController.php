@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -85,11 +86,61 @@ class UserController extends Controller
 
         return view('userprofile.view', ['users' => $users, 'keyword' => $keyword]);
     }
+    public function survey(Request $request)
+    {
+        $validatedData = $request->validate([
+            'course' => 'required|string',
+            'age' => 'required|integer',
+            'year_graduated' => 'required|integer',
+            'permanent_home_address' => 'required|string',
+            'work_company' => 'required|string',
+            'employment_status' => 'required|string',
+            'company_location' => 'required|string',
+            'position_on_work' => 'required|string',
+            'date_hired' => 'required|date',
+            'employed_status' => 'required|string',
+            'civil_service' => 'nullable|string',
+            'awards_received' => 'nullable|string',
+            'job_to_course' => 'nullable|string'
+        ]);
+    
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Survey::create($validatedData);
+        return redirect()->back();
+        // Store the survey data in your database or perform any other necessary actions here
+    }
+
+    public function updateSurvey(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'course' => 'required|string',
+            'age' => 'required|integer',
+            'year_graduated' => 'required|integer',
+            'permanent_home_address' => 'required|string',
+            'work_company' => 'required|string',
+            'employment_status' => 'required|string',
+            'company_location' => 'required|string',
+            'position_on_work' => 'required|string',
+            'date_hired' => 'required|date',
+            'employed_status' => 'required|string',
+            'civil_service' => 'nullable|string',
+            'awards_received' => 'nullable|string',
+            'job_to_course' => 'nullable|string',
+            'status' => 'required|string',
+        ]);
+
+        $survey = Survey::find($id);
+        $survey->update($validatedData);
+
+        return redirect()->back();
+    }
+
     public function show($id)
-{
-    $user = User::findOrFail($id);
-    return view('user.profile', compact('user'));
-}
+    {
+        $user = User::findOrFail($id);
+        return view('user.profile', compact('user'));
+    }
 
 
     public function update(UpdateUserRequest $request, User $user)

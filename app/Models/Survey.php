@@ -9,6 +9,7 @@ class Survey extends Model
 {
     use HasFactory;
 
+    protected $table = 'questionaires';
     protected $fillable = [
         
         'user_id',

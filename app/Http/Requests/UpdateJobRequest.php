@@ -32,7 +32,7 @@ class UpdateJobRequest extends FormRequest
             'website' => 'required',
             'tags' => 'nullable|array',
             'tags.*' => 'nullable|string',
-            'photo' => 'nullable|image|max:2048',
+            'photo' => 'nullable|image',
             'user_id' => 'required|exists:users,id'
         ];
     }

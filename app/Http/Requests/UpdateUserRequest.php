@@ -30,7 +30,7 @@ class UpdateUserRequest extends FormRequest
             'work_address' => 'nullable',
             'age' => 'nullable',
             'department' => 'nullable',
-            'photo' => 'nullable|image|max:2048',
+            'photo' => 'nullable|image',
         ];
     }
 }
