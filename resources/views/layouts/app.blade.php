@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="overflow-y: scroll; height:100vh">
         <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-white " onclick="updateTitle('Welcome to MinSU-AlumnConnect')" href="{{ url('/home') }}">
