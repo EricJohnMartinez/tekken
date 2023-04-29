@@ -7,6 +7,7 @@ use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
@@ -148,19 +149,33 @@ class UserController extends Controller
 
 
     public function update(UpdateUserRequest $request, User $user)
-    {
-        abort_if(!auth()->user()->can('update user'), Response::HTTP_FORBIDDEN, 'Unauthorized');
-    // dd($request->has('photo'));
+{
+    abort_if(!auth()->user()->can('update user'), Response::HTTP_FORBIDDEN, 'Unauthorized');
 
     $user = User::where('id', auth()->user()->id)->first();
-        $user->update($request->validated());
+    $user->update($request->validated());
 
-        if ($request->has('photo')) {
-            $user->clearMediaCollection('photos');
-            $user->addMediaFromRequest('photo')->toMediaCollection('photos');
-        }
-
-        return redirect()->route('userprofile.index')->with('success', 'User profile updated successfully');
+    if ($request->has('photo')) {
+        $user->clearMediaCollection('photos');
+        $user->addMediaFromRequest('photo')->toMediaCollection('photos');
     }
+
+    // Geocode the work address
+    $client = new Client();
+    $workAddress = urlencode($user->work_address);
+
+    $response = $client->request('GET', "https://nominatim.openstreetmap.org/search?q={$workAddress}&format=json");
+    $workLocation = json_decode($response->getBody(), true);
+    if (!empty($workLocation)) {
+        $user->work_lat = $workLocation[0]['lat'];
+        $user->work_lng = $workLocation[0]['lon'];
+    }
+
+    $user->save();
+
+    return redirect()->route('userprofile.index')->with('success', 'User profile updated successfully');
+}
+
+    
 
 }
