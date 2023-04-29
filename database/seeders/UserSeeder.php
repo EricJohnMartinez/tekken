@@ -28,12 +28,13 @@ class UserSeeder extends Seeder
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
         ]);
-
+        
         User::create([
             'name' => 'alumni',
             'email' => 'alumni@admin.com',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
         ]);
+
     }
 }

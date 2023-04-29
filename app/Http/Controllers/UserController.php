@@ -58,7 +58,8 @@ class UserController extends Controller
     {
         abort_if(!auth()->user()->can('show user'), Response::HTTP_FORBIDDEN, 'Unauthorized');
         $users = User::all();
-        return view('userprofile.index', compact('users'));
+        $survey = Survey::all();
+        return view('userprofile.index', compact('users','survey'));
     }
 
     public function edit(User $user)
@@ -101,7 +102,8 @@ class UserController extends Controller
             'employed_status' => 'required|string',
             'civil_service' => 'nullable|string',
             'awards_received' => 'nullable|string',
-            'job_to_course' => 'nullable|string'
+            'job_to_course' => 'nullable|string',
+            'status' => 'required|string'
         ]);
     
         $validatedData['user_id'] = auth()->user()->id;
@@ -113,6 +115,7 @@ class UserController extends Controller
 
     public function updateSurvey(Request $request, $id)
     {
+        $survey = Survey::find($id);
         $validatedData = $request->validate([
             'course' => 'required|string',
             'age' => 'required|integer',
@@ -129,10 +132,11 @@ class UserController extends Controller
             'job_to_course' => 'nullable|string',
             'status' => 'required|string',
         ]);
-
-        $survey = Survey::find($id);
+    
+        $validatedData['status'] = 'completed'; // set default value of "completed" for "status" field
+    
         $survey->update($validatedData);
-
+    
         return redirect()->back();
     }
 

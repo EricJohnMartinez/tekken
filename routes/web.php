@@ -73,6 +73,7 @@ Route::middleware(['auth', 'verified', 'approved'])->group(function () {
     Route::put('/survey/{id}', [UserController::class, 'updateSurvey'])->name('survey.update');
 
 
+
     Route::prefix('admin')->name('admin.')->middleware('auth:sanctum')->group(function () {
         Route::get('pending-users', [UserController::class, 'getPendingUsers'])->name('pending-users');
         Route::get('approve-user/{user}', [UserController::class, 'approveUser'])->name('approve-user');

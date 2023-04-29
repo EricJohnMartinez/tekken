@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row mt-3">
-            <div class="col-md-9 mx-auto"">
+            <div class="col-md-9 mx-auto">
                 <div class="card ">
                     <div class="card-body ">
                         <div class="row">
@@ -45,7 +45,6 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-
                                     <div class="mb-3">
                                         <label for="photo" class="form-label">
                                             @if ($user->getFirstMediaUrl('photos'))
@@ -61,8 +60,6 @@
                                             </span>
                                         @enderror
                                     </div>
-
-
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
