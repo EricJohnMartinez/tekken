@@ -73,13 +73,12 @@
                                                             name="course"
                                                             value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->course : '' }}"
                                                             required>
-
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="age" class="form-label">Age</label>
                                                         <input type="number" class="form-control" id="age"
                                                             name="age"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->age : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->age : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
@@ -87,7 +86,7 @@
                                                             Graduated</label>
                                                         <input type="number" class="form-control" id="year_graduated"
                                                             name="year_graduated"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->year_graduated : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->year_graduated : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
@@ -95,14 +94,14 @@
                                                             Home Address</label>
                                                         <input type="text" class="form-control"
                                                             id="permanent_home_address" name="permanent_home_address"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->permanent_home_address : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->permanent_home_address : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="work_company" class="form-label">Work Company</label>
                                                         <input type="text" class="form-control" id="work_company"
                                                             name="work_company"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->work_company : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->work_company : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
@@ -110,14 +109,15 @@
                                                             Status</label>
                                                         <input type="text" class="form-control" id="employment_status"
                                                             name="employment_status"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->employment_status : '' }}"required>
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->employment_status : '' }}"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="company_location" class="form-label">Company
                                                             Location</label>
                                                         <input type="text" class="form-control" id="company_location"
                                                             name="company_location"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->company_location : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->company_location : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
@@ -125,14 +125,14 @@
                                                             Work</label>
                                                         <input type="text" class="form-control" id="position_on_work"
                                                             name="position_on_work"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->position_on_work : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->position_on_work : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="date_hired" class="form-label">Date Hired</label>
                                                         <input type="date" class="form-control" id="date_hired"
                                                             name="date_hired"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->date_hired : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->date_hired : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
@@ -140,7 +140,7 @@
                                                             Status</label>
                                                         <input type="text" class="form-control" id="employed_status"
                                                             name="employed_status"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->employed_status : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->employed_status : '' }}"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
@@ -148,27 +148,27 @@
                                                             Service</label>
                                                         <input type="text" class="form-control" id="civil_service"
                                                             name="civil_service"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->civil_service : '' }}">
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->civil_service : '' }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="awards_received" class="form-label">Awards
                                                             Received</label>
                                                         <input type="text" class="form-control" id="awards_received"
                                                             name="awards_received"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->awards_received : '' }}">
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->awards_received : '' }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="job_to_course" class="form-label">Job to
                                                             Course</label>
                                                         <input type="text" class="form-control" id="job_to_course"
                                                             name="job_to_course"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->job_to_course : '' }}">
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->job_to_course : '' }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status" class="form-label">Status</label>
                                                         <input type="text" class="form-control" id="status"
                                                             name="status"
-                                                            value="{{ $surveyStatus === 'completed' ? auth()->user()->survey->status : '' }}"
+                                                            value="{{ $surveyStatus === 'completed' && auth()->user()->survey ? auth()->user()->survey->status : '' }}"
                                                             required>
                                                     </div>
                                                     <button type="submit"
