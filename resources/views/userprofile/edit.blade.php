@@ -65,15 +65,17 @@
                                     <div class="form-group">
                                         <label for="work_address">Work Address</label>
                                         <div class="input-group">
-                                            <input type="text" name="work_address" id="work_address" class="form-control"
-                                                readonly>
+                                            <input type="text" name="work_address"
+                                                value="{{ Auth::user()->work_address }}" id="work_address"
+                                                class="form-control">
                                             <div class="input-group-append">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#addressModal">Select Address</button> 
+                                                    data-target="#addressModal">Select Address</button>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Modal -->
+
                                     <div class="modal fade" id="addressModal" tabindex="-1" role="dialog"
                                         aria-labelledby="addressModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -105,12 +107,14 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="barangay">Barangay</label>
-                                                        <select name="barangay" id="barangay" class="form-control">
-                                                            <option value="">-- Select a barangay --</option>
-                                                        </select>
-                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        id="addressModalOkButton">OK</button>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -118,107 +122,101 @@
                                     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
                                     <script>
                                         $.getJSON('{{ asset('regions.json') }}', function(data) {
-    console.log(data); // Debugging code
-    $.each(data.regions, function(key, value) {
-        console.log(key, value); // Debugging code
-        $('#region').append('<option value="' + value.id + '">' + value.name + '</option>');
-    });
-});
 
-                                            // Load provinces
-                                            $('#region').change(function() {
-                                                var regionId = $(this).val();
-                                                $('#province').empty();
-                                                $('#province').append('<option value="">-- Select a province --</option>');
-                                                $('#city').empty();
-                                                $('#city').append('<option value="">-- Select a city --</option>');
-                                                $('#barangay').empty();
-                                                $('#barangay').append('<option value="">-- Select a barangay --</option>');
-                                                if (regionId) {
-                                                    $.getJSON('{{ asset('provinces.json') }}', {
-                                                        region_id: regionId
-                                                    }, function(data) {
-                                                        $.each(data.provinces, function(key, value) {
-                                                            $('#province').append('<option value="' + value.id + '">' +
-                                                                value.name + '</option>');
-                                                        });
-                                                    });
-                                                }
-                                            });
+                                            $.each(data.data, function(key, value) {
 
-                                            // Load cities
-                                            $('#province').change(function() {
-                                                var provinceId = $(this).val();
-                                                $('#city').empty();
-                                                $('#city').append('<option value="">-- Select a city --</option>');
-                                                $('#barangay').empty();
-                                                $('#barangay').append('<option value="">-- Select a barangay --</option>');
-                                                if (provinceId) {
-                                                    $.getJSON('{{ asset('cities.json') }}', {
-                                                        province_id: provinceId
-                                                    }, function(data) {
-                                                        $.each(data.cities, function(key, value) {
-                                                            $('#city').append('<option value="' + value.id + '">' + value
-                                                                .name + '</option>');
-                                                        });
-                                                    });
-                                                }
+                                                $('#region').append('<option value="' + value.id + '">' + value.name + '</option>');
                                             });
-                                            // Load barangays
-                                            $('#city').change(function() {
-                                                var cityId = $(this).val();
-                                                $('#barangay').empty();
-                                                $('#barangay').append('<option value="">-- Select a barangay --</option>');
-                                                if (cityId) {
-                                                    $.getJSON('{{ asset('barangays.json') }}', {
-                                                        city_id: cityId
-                                                    }, function(data) {
-                                                        $.each(data.barangays, function(key, value) {
-                                                            $('#barangay').append('<option value="' + value.id + '">' +
-                                                                value.name + '</option>');
-                                                        });
-                                                    });
-                                                }
-                                            });
-                                            // Set selected address
-                                            $('#addressModal').on('shown.bs.modal', function() {
-                                                var workAddress = $('#work_address').val();
-                                                if (workAddress) {
-                                                    var address = JSON.parse(workAddress);
-                                                    $('#region').val(address.region_id).trigger('change');
-                                                    setTimeout(function() {
-                                                        $('#province').val(address.province_id).trigger('change');
-                                                    }, 500);
-                                                    setTimeout(function() {
-                                                        $('#city').val(address.city_id).trigger('change');
-                                                    }, 1000);
-                                                    setTimeout(function() {
-                                                        $('#barangay').val(address.barangay_id);
-                                                    }, 1500);
-                                                }
-                                            });
+                                        });
 
-                                            // Save selected address
-                                            $('#addressModal').on('hidden.bs.modal', function() {
-                                                var regionId = $('#region').val();
-                                                var provinceId = $('#province').val();
-                                                var cityId = $('#city').val();
-                                                var barangayId = $('#barangay').val();
-                                                var workAddress = {
-                                                    region_id: regionId,
-                                                    province_id: provinceId,
-                                                    city_id: cityId,
-                                                    barangay_id: barangayId
-                                                };
-                                                $('#work_address').val(JSON.stringify(workAddress));
-                                            });
-                                        
+                                        // Load provinces
+                                        $('#region').change(function() {
+                                            var regionId = $(this).val();
+                                            $('#province').empty();
+                                            $('#province').append('<option value="">-- Select a province --</option>');
+                                            $('#city').empty();
+                                            $('#city').append('<option value="">-- Select a city --</option>');
+                                            $('#barangay').empty();
+                                            $('#barangay').append('<option value="">-- Select a barangay --</option>');
+                                            if (regionId) {
+                                                $.getJSON('{{ asset('provinces.json') }}', {
+                                                    region_id: regionId
+                                                }, function(data) {
+                                                    $.each(data.data, function(key, value) {
+                                                        if (regionId == value['region_code']) {
+                                                            var option = $('<option value="' + value.id + '">' + value.name +
+                                                                '</option>');
+                                                            option.attr('data-region', value.region_id); // Add data attribute
+                                                            $('#province').append(option);
+                                                        }
+                                                    });
+
+                                                });
+
+                                            }
+                                        });
+
+                                        // Load cities
+                                        $('#province').change(function() {
+                                            var provinceId = $(this).val();
+                                            $('#city').empty();
+                                            $('#city').append('<option value="">-- Select a city --</option>');
+                                            $('#barangay').empty();
+                                            $('#barangay').append('<option value="">-- Select a barangay --</option>');
+                                            if (provinceId) {
+                                                $.getJSON('{{ asset('cities.json') }}', {
+                                                    province_id: provinceId
+                                                }, function(data) {
+                                                    $.each(data.data, function(key, value) {
+                                                        if (provinceId == value['province_code']) {
+                                                            $('#city').append('<option value="' + value.id + '">' + value.name +
+                                                                '</option>');
+                                                        }
+                                                    });
+                                                });
+                                            }
+                                        });
+
+                                        // Load barangays
+                                        $('#city').change(function() {
+                                            var cityId = $(this).val();
+                                            $('#barangay').empty();
+                                            $('#barangay').append('<option value="">-- Select a barangay --</option>');
+                                            if (cityId) {
+                                                // $.getJSON('{{ asset('barangays.json') }}', {
+                                                //     city_id: cityId
+                                                // }, function(data) {
+                                                //     $.each(data.data, function(key, value) {
+                                                //         if (cityId == value['city_code']) {
+                                                //             $('#barangay').append('<option value="' + value.id + '">' + value.name + '</option>');
+                                                //         }
+                                                //     });
+                                                // });
+                                                $('#barangay').replaceWith(
+                                                    '<input type="text" id="barangay" class="form-control" placeholder="Enter barangay">');
+                                            } else {
+                                                $('#barangay').replaceWith(
+                                                    '<select name="barangay" id="barangay" class="form-control"><option value="">-- Select a barangay --</option></select>'
+                                                );
+                                            }
+                                        });
+
+                                        $('#addressModalOkButton').click(function() {
+                                            $('#addressModal').data('button', 'ok');
+                                            var regionName = $('#region option:selected').text();
+                                            var provinceName = $('#province option:selected').text();
+                                            var cityName = $('#city option:selected').text();
+                                            var barangayName = $('#barangay').val() || $('#barangay option:selected').text();
+                                            var workAddress = regionName + ', ' + provinceName + ', ' + cityName + ', ' + barangayName;
+                                            $('#work_address').val(workAddress);
+                                        });
+
+                                        $('#addressModalOkButton').click(function() {
+                                            $('#addressModal').data('button', 'ok');
+                                        });
                                     </script>
+
                                     
-                                    <div class="form-group">
-                                        <button type="button" class="btn btn-primary" id="pin-location">Pin
-                                            Location</button>
-                                    </div>
                                     <div id="map" style="height: 400px;"></div>
                                     <input type="hidden" name="home_lat" id="home_lat"
                                         value="{{ Auth::user()->home_lat }}">
@@ -327,6 +325,31 @@
                                             });
                                         }
                                     </script>
+                                    <script>
+                                        var map = L.map('map').setView([13.4224, 121.1829], 13);
+
+                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                                        }).addTo(map);
+
+                                        var marker;
+
+                                        function onMapClick(e) {
+                                            if (marker) {
+                                                map.removeLayer(marker);
+                                            }
+
+                                            marker = L.marker(e.latlng).addTo(map);
+
+                                            L.Control.Geocoder.nominatim().reverse(e.latlng, map.options.crs.scale(map.getZoom()), function(results) {
+                                                var address = results.length ? results[0].name : "Address not found";
+                                                marker.bindPopup(address).openPopup();
+                                            });
+                                        }
+
+                                        map.on('click', onMapClick);
+                                    </script>
+
 
 
 
