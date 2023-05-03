@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::all();
+        $dept = [];
+        $empStat = [];
+        foreach ($users as $departments) {
+            $dept[] = [
+                'label' => $departments->department,
+                'value' => $departments->groupBy('department')->count()
+            ];
+        }
+        foreach ($users as $employmentStatus) {
+            $empStat[] = [
+                'label' => $employmentStatus->employment_status,
+                'value' => $employmentStatus->groupBy('employment_status')->count()
+            ];
+        }
+        return view('home', compact('dept','empStat'));
     }
 }

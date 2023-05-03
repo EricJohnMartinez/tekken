@@ -10,7 +10,13 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="text-center">
-                  <img src="{{ $user->media_url }}" class="img-fluid rounded-circle" alt="Profile Image">
+                  @if ($user->media_url)
+                  <img style="height: 170px; object-fit: contain;" src="{{ $user->media_url }}"
+                      alt="Profile Photo" class="img-thumbnail rounded-circle w-100">
+              @else
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Minsu.png/640px-Minsu.png" alt="Profile Photo"
+                      class="rounded-circle w-100">
+              @endif
                 </div>
               </div>
               <div class="col-sm-8">

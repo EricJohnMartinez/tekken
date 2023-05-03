@@ -30,7 +30,16 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         'work_address',
         'age',
         'department',
-
+        'year_graduated',
+        'work_company',
+        'employment_status',
+        'position_on_work',
+        'date_hired',
+        'employed_status',
+        'civil_sevice',
+        'job_to_course',
+        'monthly_income',
+        'status'
     ];
 
     /**

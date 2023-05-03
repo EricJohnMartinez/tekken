@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    body{
-      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
-      background-repeat: no-repeat;
+    <style>
+        body {
+            background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
+            background-repeat: no-repeat;
             background-size: cover;
             background-position: top center;
             border-top-right-radius: 8px;
             border-top-left-radius: 8px;
-        height: 100vh !important;
-    }
+            height: 100vh !important;
+        }
     </style>
-   
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -76,136 +76,110 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="createJobModal" tabindex="-1" aria-labelledby="createJobModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="createJobModalLabel">Create Job</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <div class="card">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="container text-center">
+                        <h1>DEPARTMENT</h1>
+                        <canvas id="Department"></canvas>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <!-- Place your form code here -->
-                    <form action="{{ route('jobs.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <!-- Form fields here -->
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Title</label>
-                            <input name="title" value="{{ old('title') }}" type="text"
-                                class="form-control @error('title') is-invalid @enderror" id="exampleFormControlInput1"
-                                placeholder="Title">
-                            @error('title')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput2" class="form-label">Company Name</label>
-                            <input name="company" value="{{ old('company') }}" type="text"
-                                class="form-control @error('company') is-invalid @enderror" id="exampleFormControlInput2"
-                                placeholder="Company Name">
-                            @error('company')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput3" class="form-label">Location</label>
-                            <input name="location" value="{{ old('location') }}" type="text"
-                                class="form-control @error('location') is-invalid @enderror" id="exampleFormControlInput3"
-                                placeholder="Location">
-                            @error('location')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput4" class="form-label">Website</label>
-                            <input name="website" value="{{ old('website') }}" type="text"
-                                class="form-control @error('website') is-invalid @enderror" id="exampleFormControlInput4"
-                                placeholder="Website">
-                            @error('website')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Tags</label>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="need-many-employee" value="need-many-employee"
-                                    class="@error('tags') is-invalid @enderror" aria-label="Need Many Employee">
-                                <label for="need-many-employee">Need Many Employee</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="urgent" value="urgent"
-                                    class="@error('tags') is-invalid @enderror" aria-label="Urgent">
-                                <label for="urgent">Urgent</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="vacancy" value="vacancy"
-                                    class="@error('tags') is-invalid @enderror" aria-label="Vacancy">
-                                <label for="vacancy">Vacancy</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="high-priority" value="high-priority"
-                                    class="@error('tags') is-invalid @enderror" aria-label="High Priority">
-                                <label for="high-priority">High Priority</label>
-                            </div>
-                            @error('tags')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput6" class="form-label">Email address</label>
-                            <input name="email" value="{{ old('email') }}" type="email"
-                                class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput6"
-                                placeholder="name@example.com">
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput7" class="form-label">Job Description</label>
-                            <textarea name="descript" class="form-control @error('descript') is-invalid @enderror" id="exampleFormControlInput7"
-                                placeholder="Job Description">
-                    {{ old('descript') }}
-                </textarea>
-                            @error('descript')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput8" class="form-label">Photo</label>
-                            <div class="px-3 py-2 border rounded">
-                                <input name="photo" type="file">
-                            </div>
-                            @error('photo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                        <div class="d-flex justify-content-end">
-                            <input name="submit" type="submit" class="btn btn-primary" />
-                        </div>
-                    </form>
+                <div class="col-6">
+                    <div class="container text-center">
+                        <h1>EMPLOYMENT STATUS</h1>
+                        <canvas id="employmentStatus"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var dept = {!! json_encode($dept) !!};
+        var empStat = {!! json_encode($empStat) !!};
+    </script>
+    <script>
+        console.log(empStat);
+        var ctx = document.getElementById('employmentStatus').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: empStat.map(d => d.label),
+                datasets: [{
+                    label: [empStat.map(d => d.label)],
+                    data: empStat.map(d => d.value),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 2)',
+                        'rgba(54, 162, 235, 2)',
+                        'rgba(255, 206, 86, 2)',
+                        'rgba(75, 192, 192, 2)',
+                        'rgba(153, 102, 255, 2)',
+                        'rgba(255, 159, 64, 2)'],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                
+            ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        var ctx = document.getElementById('Department').getContext('2d');
+        var Department = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: dept.map(d => d.label),
+                datasets: [{
+                    label: 'Department',
+                    data: dept.map(d => d.value),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 2)',
+                        'rgba(54, 162, 235, 2)',
+                        'rgba(255, 206, 86, 2)',
+                        'rgba(75, 192, 192, 2)',
+                        'rgba(153, 102, 255, 2)',
+                        'rgba(255, 159, 64, 2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             // Hide any error messages when the modal is opened

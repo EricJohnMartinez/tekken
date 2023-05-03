@@ -12,37 +12,29 @@
                                     <img style="height: 170px; object-fit: contain;" src="{{ Auth::user()->media_url }}"
                                         alt="Profile Photo" class="img-thumbnail rounded-circle w-100">
                                 @else
-                                    <img src="https://via.placeholder.com/150" alt="Profile Photo"
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Minsu.png/640px-Minsu.png" alt="Profile Photo"
                                         class="rounded-circle w-100">
                                 @endif
-                                <form action="{{ route('userprofile.update', Auth::user()->id) }}" method="post"
-                                    enctype="multipart/form-data">
+
+                            </div>
+                            <div class="col-md-9">
+                                <h2>{{ Auth::user()->name }}</h2>
+                                <form action="{{ route('userprofile.update', Auth::user()->id)}}" method="post"  enctype="multipart/form-data"  >
                                     @csrf
                                     @method('PUT')
                                     <div class="mb-3">
                                         <label for="photo" class="form-label">
-                                            @if ($user->getFirstMediaUrl('photos'))
-                                                Change Photo
-                                            @else
-                                                Upload Photo
-                                            @endif
+                                           
+                                                Profile Photo
+                                           
                                         </label>
-                                        <input type="file" name="photo" id="photo" accept="image/*">
+                                        <input class='dropzone' type="file" name="photo" id="photo" accept="image/*">
                                         @error('photo')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Update Photo</button>
-                                </form>
-                            </div>
-                            <div class="col-md-9">
-                                <h2>{{ Auth::user()->name }}</h2>
-                                <form action="{{ route('userprofile.update', Auth::user()->id) }}" method="post"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    @method('PUT')
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
@@ -58,21 +50,91 @@
                                         <input type="text" name="home_address" id="home_address"
                                             value="{{ Auth::user()->home_address }}" class="form-control">
                                     </div>
-
-                                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                                    <div class="form-group">
+                                        <label for="year_graduated">Year Graduated</label>
+                                        <input type="date" name="year_graduated" id="year_graduated" value="{{Auth::user()->year_graduated }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="employment_status">Employment Status</label>
+                                        <select name="employment_status" id="employment_status" class="form-control">
+                                            <option value="">--Select Employment Status--</option>
+                                            <option value="employed" {{ Auth::user()->employment_status == 'employed' ? 'selected' : '' }}>Employed</option>
+                                            <option value="unemployed" {{ Auth::user()->employment_status == 'unemployed' ? 'selected' : '' }}>Unemployed</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div id="employed-fields" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="work_company">Work Company</label>
+                                            <input type="text" name="work_company" id="work_company" value="{{ Auth::user()->work_company}}" class="form-control">
+                                        </div> 
+                                        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
                                     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
                                     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-                                    <div class="form-group">
-                                        <label for="work_address">Work Address</label>
-                                        <div class="input-group">
-                                            <input type="text" name="work_address"
-                                                value="{{ Auth::user()->work_address }}" id="work_address"
-                                                class="form-control">
-                                            <div class="input-group-append">
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#addressModal">Select Address</button>
+                                        <div class="form-group">
+                                            <label for="work_address">Work Address</label>
+                                            <div class="input-group">
+                                                <input type="text" name="work_address" value="{{ Auth::user()->work_address }}" id="work_address" class="form-control" readonly>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addressModal">Select Address</button>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="position_on_work">Position on Work</label>
+                                            <input type="text" name="position_on_work" id="position_on_work" value="{{ Auth::user()->position_on_work == 'unemployed' ? 'Unemployed' : Auth::user()->position_on_work }}" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="date_hired">Date Hired</label>
+                                        <input type="date" name="date_hired" id="date_hired" value="{{ Auth::user()->date_hired == 'unemployed' ? 'Unemployed' : Auth::user()->date_hired }}" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="employed_status">Employed Status</label>
+                                        <input type="text" name="employed_status" id="employed_status" value="{{ Auth::user()->employed_status == 'unemployed' ? 'Unemployed' : Auth::user()->employed_status }}" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="job_to_course">Job to Course</label>
+                                        <input type="text" name="job_to_course" id="job_to_course" value="{{ Auth::user()->job_to_course == 'unemployed' ? 'Unemployed' : Auth::user()->job_to_course }}" class="form-control">
+                                        </div>
+                                        
+                                        </div> 
+                                        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                                        <script> $('#employment_status').on('change', function() { if (this.value == 'employed') {
+                                            $('#employed-fields').show();
+                                            // Set the values to empty if switching to employed
+                                            $('#position_on_work').val('');
+                                            $('#date_hired').val('');
+                                            $('#employed_status').val('');
+                                            $('#job_to_course').val('');
+                                            } else {
+                                            $('#employed-fields').hide();
+                                            // Set the values to "Unemployed" if switching to unemployed
+                                            $('#position_on_work').val('Unemployed');
+                                            $('#date_hired').val('Unemployed');
+                                            $('#employed_status').val('Unemployed');
+                                            $('#job_to_course').val('Unemployed');
+                                            }
+                                            });
+                                            </script>
+                                    
+                                    <script>
+                                        $('#employment_status').on('change', function() {
+                                            if (this.value == 'employed') {
+                                                $('#employed-fields').show();
+                                            } else {
+                                                $('#employed-fields').hide();
+                                            }
+                                        });
+                                    </script>
+                                    
+
+                                    <div class="form-group">
+                                        <label for="civil_service">Civil Service</label>
+                                        <input type="text" name="civil_service" id="civil_service" value="{{ Auth::user()->civil_service }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status">Status</label>
+                                        <input type="hidden" name="status" id="status" value="{{ Auth::user()->status }}" class="form-control">
                                     </div>
                                     <!-- Modal -->
 
@@ -119,16 +181,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                                    
                                     <script>
                                         $.getJSON('{{ asset('regions.json') }}', function(data) {
-
                                             $.each(data.data, function(key, value) {
-
                                                 $('#region').append('<option value="' + value.id + '">' + value.name + '</option>');
                                             });
                                         });
-
                                         // Load provinces
                                         $('#region').change(function() {
                                             var regionId = $(this).val();
@@ -150,12 +209,9 @@
                                                             $('#province').append(option);
                                                         }
                                                     });
-
                                                 });
-
                                             }
                                         });
-
                                         // Load cities
                                         $('#province').change(function() {
                                             var provinceId = $(this).val();
@@ -176,7 +232,6 @@
                                                 });
                                             }
                                         });
-
                                         // Load barangays
                                         $('#city').change(function() {
                                             var cityId = $(this).val();
@@ -200,7 +255,6 @@
                                                 );
                                             }
                                         });
-
                                         $('#addressModalOkButton').click(function() {
                                             $('#addressModal').data('button', 'ok');
                                             var regionName = $('#region option:selected').text();
@@ -210,14 +264,12 @@
                                             var workAddress = regionName + ', ' + provinceName + ', ' + cityName + ', ' + barangayName;
                                             $('#work_address').val(workAddress);
                                         });
-
                                         $('#addressModalOkButton').click(function() {
                                             $('#addressModal').data('button', 'ok');
                                         });
                                     </script>
 
-                                    
-                                    <div id="map" style="height: 400px;"></div>
+                                    <div type="hidden" id="map" style="height: 400px;"></div>
                                     <input type="hidden" name="home_lat" id="home_lat"
                                         value="{{ Auth::user()->home_lat }}">
                                     <input type="hidden" name="home_lng" id="home_lng"
@@ -230,28 +282,20 @@
                                         value="{{ Auth::user()->pin_lat }}">
                                     <input type="hidden" name="pin_lng" id="pin_lng"
                                         value="{{ Auth::user()->pin_lng }}">
-
-
-                                    <link rel="stylesheet"
-                                        href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-                                    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-
-                                    <link rel="stylesheet"
-                                        href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-                                    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
+                                   
+                                    
+                                    
                                     <script>
                                         var workLat = {{ Auth::user()->work_lat ?? 'null' }};
                                         var workLng = {{ Auth::user()->work_lng ?? 'null' }};
-                                        var pinLat = {{ Auth::user()->pin_lat ?? 'null' }};
-                                        var pinLng = {{ Auth::user()->pin_lng ?? 'null' }};
+                                        
 
                                         var workAddress = workLat && workLng ? L.latLng(workLat, workLng) : null;
-                                        var pinAddress = pinLat && pinLng ? L.latLng(pinLat, pinLng) : null;
+                                        
 
                                         var map = L.map('map', {
                                             center: L.latLng(13.4224, 121.1829), // Calapan City, Oriental Mindoro, Philippines
-                                            zoom: 13
+                                            zoom: 30
                                         });
 
 
@@ -266,37 +310,6 @@
                                             workMarker.bindPopup("<b>Work Address</b><br>{{ Auth::user()->work_address }}").openPopup();
                                             map.setView(workAddress, 13);
                                         }
-
-                                        if (pinAddress) {
-                                            pinMarker = L.marker(pinAddress).addTo(map);
-                                            pinMarker.bindPopup("<b>Pin Location</b><br>").openPopup();
-                                            map.setView(pinAddress, 13);
-                                        }
-
-                                        map.on('click', function(e) {
-                                            if (pinMarker) {
-                                                map.removeLayer(pinMarker);
-                                            }
-
-                                            pinMarker = L.marker(e.latlng).addTo(map);
-                                            pinMarker.bindPopup("<b>Pin Location</b><br>").openPopup();
-
-                                            document.getElementById('work_lat').value = e.latlng.lat.toFixed(6);
-                                            document.getElementById('work_lng').value = e.latlng.lng.toFixed(6);
-
-                                            L.Control.geocoder({
-                                                    collapsed: false,
-                                                    defaultMarkGeocode: false,
-                                                    placeholder: 'Enter work address...',
-                                                    errorMessage: 'Could not find that address.',
-                                                    geocoder: L.Control.Geocoder.nominatim()
-                                                })
-                                                .on('markgeocode', function(e) {
-                                                    document.getElementById('work_address').value = e.geocode.name;
-                                                })
-                                                .addTo(map)
-                                                .markGeocode(e.latlng);
-                                        });
 
                                         document.getElementById('pin-location').addEventListener('click', function() {
                                             if (pinMarker) {
@@ -325,39 +338,13 @@
                                             });
                                         }
                                     </script>
-                                    <script>
-                                        var map = L.map('map').setView([13.4224, 121.1829], 13);
-
-                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                                        }).addTo(map);
-
-                                        var marker;
-
-                                        function onMapClick(e) {
-                                            if (marker) {
-                                                map.removeLayer(marker);
-                                            }
-
-                                            marker = L.marker(e.latlng).addTo(map);
-
-                                            L.Control.Geocoder.nominatim().reverse(e.latlng, map.options.crs.scale(map.getZoom()), function(results) {
-                                                var address = results.length ? results[0].name : "Address not found";
-                                                marker.bindPopup(address).openPopup();
-                                            });
-                                        }
-
-                                        map.on('click', onMapClick);
-                                    </script>
-
-
-
-
+                                   
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Update
-                                            Profile</button>
-                                    </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Update
+                                                Profile</button>
+                                        </div>
                                 </form>
                             </div>
                         </div>
