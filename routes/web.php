@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -66,6 +67,12 @@ Route::middleware(['auth', 'verified', 'approved'])->group(function () {
     Route::resource('/socialmedia', SocialMediaController::class);
 
     Route::resource('/userprofile', UserController::class);
+
+    Route::resource('/messages', ChatController::class);
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+    Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
+
+
     Route::get('userprofile.view', [UserController::class, 'userIndex'])->name('userprofile.userIndex');
     Route::get('/users', [UserController::class, 'userIndex'])->name('userIndex');
     Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile');
