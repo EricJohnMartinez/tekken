@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        body {
-            background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top center;
-            border-top-right-radius: 8px;
-            border-top-left-radius: 8px;
-            height: 100vh !important;
-        }
-    </style>
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -42,14 +30,40 @@
                     </script>
                 @endif
             </div>
+            {{-- <div class="col-md-8">
+                <div class="row">
+                    <div class="col">
+                        @if (auth()->user()->status=='completed')
+                            <div class="col-md-8">
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
+                                <link rel="stylesheet"
+                                    href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
 
+                                <script>
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'info',
+                                        title: '{{ __('Welcome to AlumnConnect!') }}   {{ Auth::user()->name }} {{ __('please wait for admin approval to access site') }}',
+                                        showConfirmButton: true,
+                                        confirmButtonText: '{{ __('OK') }}',
+                                    });
+                                </script>
 
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div> --}}
             <div class="col-md-8">
                 <div class="row">
                     <div class="col">
                         @if (!auth()->user()->approved)
                             <div class="col-md-8">
-
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}
@@ -76,6 +90,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <div class="card">
 
@@ -179,47 +194,4 @@
             }
         });
     </script>
-
-    <script>
-        $(document).ready(function() {
-            // Hide any error messages when the modal is opened
-            $('#createJobModal').on('show.bs.modal', function() {
-                $('.modal-body').find('.alert').remove();
-                $('.modal-body').find('.is-invalid').removeClass('is-invalid');
-            });
-
-            // Submit the form when the "Create" button is clicked
-            $('#createJobModal').on('click', '#createJobBtn', function(e) {
-                e.preventDefault();
-                var form = $(this).closest('form');
-                var url = form.attr('action');
-                var formData = new FormData(form[0]);
-
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        // Handle success response here
-                    },
-                    error: function(xhr) {
-                        // Handle error response here
-                    }
-                });
-            });
-        });
-    </script>
-    <!-- Bootstrap CSS -->
-
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-
-
-
 @endsection

@@ -22,7 +22,7 @@
               <div class="col-sm-8">
                 <h3 class="mb-3">{{ $user->name }}</h3>
                 <p class="lead"><strong>Email:</strong> {{ $user->email }}</p>
-                <p class="lead"><strong>Work Address:</strong> {{ $user->work_address }}</p>
+                <p class="lead"><strong>Work Address:</strong> {{ $user->employment_status }}</p>
                 <p class="lead"><strong>Department:</strong> {{ $user->department }}</p>
               </div>
             </div>

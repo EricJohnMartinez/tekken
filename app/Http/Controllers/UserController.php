@@ -75,11 +75,15 @@ class UserController extends Controller
 
         $keyword = $request->input('keyword');
         $department = $request->input('department');
+        $employment_status = $request->input('employment_status'); 
 
         $users = User::when($keyword, function ($query, $keyword) {
                     $query->where('name', 'LIKE', "%{$keyword}%")
                         ->orWhere('work_address', 'LIKE', "%{$keyword}%")
                         ->orWhere('department', 'LIKE', "%{$keyword}%");
+                })
+                ->when($employment_status, function ($query, $employment_status) { // Added this line
+                    $query->where('employment_status', $employment_status);
                 })
                 ->when($department, function ($query, $department) {
                     $query->where('department', $department);
@@ -88,6 +92,7 @@ class UserController extends Controller
 
         return view('userprofile.view', ['users' => $users, 'keyword' => $keyword]);
     }
+
     public function survey(Request $request)
     {
         $validatedData = $request->validate([
