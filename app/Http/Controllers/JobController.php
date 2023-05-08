@@ -48,6 +48,7 @@ class JobController extends Controller
     public function store(StoreJobRequest $request)
     {
         abort_if(!auth()->user()->can('store job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
+        
 
         $job = Job::create($request->validated());
         if ($request->has('photo')) {
@@ -125,6 +126,7 @@ class JobController extends Controller
 
     public function applicants(Job $job)
     {
+        
         abort_if(!auth()->user()->can('access job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
         $applicants = $job->applicants()->paginate(10);
         return view('jobs.applicants', compact('job', 'applicants'));

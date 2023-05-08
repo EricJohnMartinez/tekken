@@ -103,16 +103,14 @@
                                             $('#employed-fields').show();
                                             // Set the values to empty if switching to employed
                                             $('#position_on_work').val('');
-                                            $('#date_hired').val('');
                                             $('#employed_status').val('');
                                             $('#job_to_course').val('');
                                             } else {
                                             $('#employed-fields').hide();
                                             // Set the values to "Unemployed" if switching to unemployed
-                                            $('#position_on_work').val('Unemployed');
-                                            $('#date_hired').val('Unemployed');
-                                            $('#employed_status').val('Unemployed');
-                                            $('#job_to_course').val('Unemployed');
+                                            $('#position_on_work').val('unemployed');
+                                            $('#employed_status').val('unemployed');
+                                            $('#job_to_course').val('unemployed');
                                             }
                                             });
                                             </script>
@@ -132,8 +130,8 @@
                                         <label for="civil_service">Civil Service</label>
                                         <input type="text" name="civil_service" id="civil_service" value="{{ Auth::user()->civil_service }}" class="form-control">
                                     </div>
+                                    
                                     <div class="form-group">
-                                        <label for="status">Status</label>
                                         <input type="hidden" name="status" id="status" value="{{ Auth::user()->status }}" class="form-control">
                                     </div>
                                     <!-- Modal -->
