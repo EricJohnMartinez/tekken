@@ -108,6 +108,8 @@
                         <p class="text-center">Please wait for admin approval.</p>
                     @else
                         @if (auth()->user()->hasRole('admin'))
+                        <a href="{{ route('pdf.records') }}" class="btn btn-outline-light mx-3 mb-4"
+                                 id="job-offers-link">Print</a>
                             <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Job Offers')" id="job-offers-link">Job Offers</a>
                             <a href="{{ route('userprofile.userIndex') }}" class="btn btn-outline-light mx-3 mb-4"

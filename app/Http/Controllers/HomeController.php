@@ -54,9 +54,17 @@ public function index()
 
 public function pdf()
 {
-    $unemployedCount = User::where('employment_status', 'unemployed')->count();
-    $employedCount = User::where('employment_status', 'employed')->count();
-    $employmentStatuses = "$unemployedCount unemployed and $employedCount employed";
+    date_default_timezone_set('Asia/Manila');
+
+    $employmentStatusCounts = User::groupBy('employment_status')
+        ->selectRaw('employment_status, count(*) as count')
+        ->pluck('count', 'employment_status');
+
+    $employmentStatuses = '';
+    foreach ($employmentStatusCounts as $status => $count) {
+        $employmentStatuses .= "$count $status ";
+    }
+    $employmentStatuses = rtrim($employmentStatuses, ',' );
 
     $dompdf = new Dompdf();
     
@@ -68,8 +76,9 @@ public function pdf()
     // Render the PDF
     $dompdf->render();
 
+    $fileName = 'Alumni-Records-' . date('F-d-Y') . '.pdf';
     // Stream the PDF to the browser
-    return $dompdf->stream();
+    return $dompdf->stream($fileName);
 }
 
 }
