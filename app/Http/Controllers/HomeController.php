@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Dompdf\Dompdf;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,6 +51,19 @@ public function index()
     }
     return view('home', compact('dept','empStat'));
 }
+
+// public function pdf()
+// {
+
+//   $data = ['foo' => 'bar']; // Data to be used in the PDF
+
+//     $dompdf = new Dompdf();
+//     $dompdf->loadHtml(view('pdf', $data)); // PDF view file
+//     $dompdf->setPaper('A4', 'portrait');
+
+//     $dompdf->render();
+//     $dompdf->stream('document.pdf');
+// }
 
 
 }
