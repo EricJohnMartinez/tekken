@@ -1,23 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    body{
-      background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
-      background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top center;
-            border-top-right-radius: 8px;
-            border-top-left-radius: 8px;
-        height: 100vh !important;
 
-    }
-  </style>
-<form action="{{ route('socialmedia.store') }}" method="POST" enctype="multipart/form-data" class="container">
-    <div class="card p-4 m-5 row">
-        <div class="mb-4 fw-bold fs-2 p-0">Post</div>
+<div class="row justify-content-center">
+   
+<form action="{{ route('socialmedia.store') }}" method="POST" enctype="multipart/form-data" class="col-6">
+    <div class="card p-4 m-5">
+        <div class="col-3 mb-4 fw-bold fs-3 p-0">Post</div>
           @csrf
-          <textarea rows="15" name="post" rows="2" placeholder="What's on your mind?"
+          <textarea rows="6" name="post" placeholder="What's on your mind?"
               class="form-control @error('post') is-invalid @enderror"></textarea>
           @error('post')
               <span class="invalid-feedback" role="alert">
@@ -34,11 +25,7 @@
               <input name="submit" type="submit" class="btn btn-primary" value="Post" />
           </div>
       </div>
-
-      </div>
-  </form>
-
-
+  </form></div>
     @foreach ($socialmedias as $socialmedia)
         <div class="card mt-5" style="width: 22rem; margin: 0 auto;">
             <img src="{{ $socialmedia->media_url }}" class="card-img-top" alt="">
@@ -49,4 +36,6 @@
             </div>
         </div>
     @endforeach
+ 
+
 @endsection

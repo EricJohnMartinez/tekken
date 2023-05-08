@@ -23,23 +23,33 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $users = User::all();
-        $dept = [];
-        $empStat = [];
-        foreach ($users as $departments) {
+public function index()
+{
+    $users = User::all();
+    $dept = [];
+    $empStat = [];
+    $uniqueDepts = $users->pluck('department')->unique();
+    foreach ($uniqueDepts as $department) {
+        $count = $users->where('department', $department)->count();
+        if ($department && $count) {
             $dept[] = [
-                'label' => $departments->department,
-                'value' => $departments->groupBy('department')->count()
+                'label' => $department,
+                'value' => $count
             ];
         }
-        foreach ($users as $employmentStatus) {
-            $empStat[] = [
-                'label' => $employmentStatus->employment_status,
-                'value' => $employmentStatus->groupBy('employment_status')->count()
-            ];
-        }
-        return view('home', compact('dept','empStat'));
     }
+    $uniqueEmpStats = $users->pluck('employment_status')->unique();
+    foreach ($uniqueEmpStats as $status) {
+        $count = $users->where('employment_status', $status)->count();
+        if ($status && $count) {
+            $empStat[] = [
+                'label' => $status,
+                'value' => $count
+            ];
+        }
+    }
+    return view('home', compact('dept','empStat'));
+}
+
+
 }
