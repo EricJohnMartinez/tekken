@@ -118,6 +118,8 @@
                                 onclick="updateTitle('Pending Users')" id="pending-users-link">View Pending Users</a>
                             <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Announcements')" id="announcements-link">Announcements</a>
+                                <a href="{{ route('messages.index') }}" class="btn btn-outline-light mx-3 mb-4"
+                                onclick="updateTitle('Message')" id="announcements-link">Chat Room</a>
                         @endif
                         @if (auth()->user()->hasRole('alumni'))
                             <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4"
