@@ -153,13 +153,9 @@
                 }
             });
         </script>
-
-
-
         <main class="py-4 container">
             @yield('content')
         </main>
-        
 </body>
 
 <footer style="background-color: rgba(69, 211, 69, 0.509);" class="text-left py-1 fixed-bottom">
