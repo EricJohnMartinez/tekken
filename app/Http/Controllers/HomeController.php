@@ -52,18 +52,24 @@ public function index()
     return view('home', compact('dept','empStat'));
 }
 
-// public function pdf()
-// {
+public function pdf()
+{
+    $unemployedCount = User::where('employment_status', 'unemployed')->count();
+    $employedCount = User::where('employment_status', 'employed')->count();
+    $employmentStatuses = "$unemployedCount unemployed and $employedCount employed";
 
-//   $data = ['foo' => 'bar']; // Data to be used in the PDF
+    $dompdf = new Dompdf();
+    
+    $dompdf->loadHtml(view('pdf.records', compact('employmentStatuses')));
 
-//     $dompdf = new Dompdf();
-//     $dompdf->loadHtml(view('pdf', $data)); // PDF view file
-//     $dompdf->setPaper('A4', 'portrait');
+    // (Optional) Set the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
 
-//     $dompdf->render();
-//     $dompdf->stream('document.pdf');
-// }
+    // Render the PDF
+    $dompdf->render();
 
+    // Stream the PDF to the browser
+    return $dompdf->stream();
+}
 
 }
