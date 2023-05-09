@@ -20,11 +20,22 @@
 
                             <div class="col-md-9">
                                 <h2 style="font-family: Arial, sans-serif;">{{ Auth::user()->name }}</h2>
+                                @if (Auth::user()->hasRole('employer'))
+                                <p style="font-family: Arial, sans-serif;"><i class="bi bi-geo-alt-fill"></i> Lives in
+                                    {{ Auth::user()->home_address }}</p>
+                                <p style="font-family: Arial, sans-serif;"><i class="bi bi-calendar"></i> Age:
+                                    {{ Auth::user()->age }}</p>
+                                <p style="font-family:Arial, sans-serif;"><i class="bi bi-person"></i> Department:
+                                    {{ Auth::user()->department }}</p>
+                                @else
+                                @if (Auth::user()->media_urls['resume'])
                                 <div class="d-flex justify-content-end">
                                     <a href="{{ Auth::user()->media_urls['resume'] }}" target="_blank" class="btn btn-primary float-end">
                                         <i class="bi bi-file-earmark-pdf"></i> View Resume
                                     </a>
                                 </div>
+                                @else
+                                @endif
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-geo-alt-fill"></i> Lives in
                                     {{ Auth::user()->home_address }}</p>
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-building"></i> Work Address:
@@ -33,7 +44,7 @@
                                     {{ Auth::user()->age }}</p>
                                 <p style="font-family:Arial, sans-serif;"><i class="bi bi-person"></i> Department:
                                     {{ Auth::user()->department }}</p>
-                                
+                                @endif
                                 <form action="{{ route('userprofile.edit', Auth::user()->id) }}" method="get">
                                     <button type="submit" class="btn btn-primary">Edit Profile</button>
                                 </form>

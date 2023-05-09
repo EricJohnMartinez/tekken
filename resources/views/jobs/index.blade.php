@@ -192,12 +192,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(!auth()->user()->hasRole('alumni'))
                 <div class="mb-4">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#createJobModal">
                         Post a Job
                     </button>
                 </div>
+                @else
+                @endif
                 <div class="row">
                     @if (session()->has('success'))
                         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>

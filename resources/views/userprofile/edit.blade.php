@@ -37,6 +37,8 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                        @if (Auth::user()->hasRole('employer'))
+                                        @else
                                         <div class="col">
                                             <label for="resume" class="form-label">Resume</label>
                                             <input name="resume" type="file" id="">
@@ -46,8 +48,9 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                        @endif
                                     </div>
-
+                                    @if (Auth::user()->hasRole('employer'))
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
@@ -63,21 +66,18 @@
                                         <select name="department" id="department" class="form-control">
                                             <option value="{{ Auth::user()->department }}">{{ Auth::user()->department }}
                                             </option>
+                                            @if (Auth::user()->hasRole('employer'))
+                                            <option value="Employer">Employer</option>
+                                            @else
                                             <option value="BSED">BSED</option>
                                             <option value="BTVTED">BTVTED</option>
                                             <option value="Criminology">Criminology</option>
                                             <option value="BSIT">BSIT</option>
                                             <option value="CBM">CBM</option>
                                             <option value="AB">AB</option>
+                                            @endif
                                         </select>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="civil_service">Civil Service</label>
-                                        <input type="text" name="civil_service" id="civil_service"
-                                            value="{{ Auth::user()->civil_service }}" class="form-control">
-                                    </div>
-
                                     <div class="form-group">
                                         <label for="home_address">Home Address</label>
                                         <input type="text" name="home_address" id="home_address"
@@ -89,10 +89,86 @@
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
+                                        <label for="work_company">Work Company</label>
+                                        <input type="text" name="work_company" id="work_company"
+                                            value="{{ Auth::user()->work_company }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="employment_status">Employment Status</label>
+                                        <select name="employment_status" id="employment_status" class="form-control">
+                                            <option value="{{ Auth::user()->employment_status }}">--Select Employment
+                                                Status--</option>
+                                            @if (Auth::user()->hasRole('employer'))
+                                                <option value="employer"
+                                                    {{ Auth::user()->employment_status == 'employer' ? 'selected' : '' }}>
+                                                    Employer</option>
+                                            @else
+                                                <option value="employed"
+                                                    {{ Auth::user()->employment_status == 'employed' ? 'selected' : '' }}>
+                                                    Employed</option>
+                                                <option value="unemployed"
+                                                    {{ Auth::user()->employment_status == 'unemployed' ? 'selected' : '' }}>
+                                                    Unemployed</option>
+                                            @endif
+                                        </select>
+                                    </div>
+                                    @else
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
+                                            class="form-control">
+                                            @if ($errors->has('name'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email"
+                                            value="{{ Auth::user()->email }}" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="department">Department</label>
+                                        <select name="department" id="department" class="form-control">
+                                            <option value="{{ Auth::user()->department }}">--Select Department--
+                                            </option>
+                                            @if (Auth::user()->hasRole('employer'))
+                                            <option value="Employer">Employer</option>
+                                            @else
+                                            <option value="BSED">BSED</option>
+                                            <option value="BTVTED">BTVTED</option>
+                                            <option value="Criminology">Criminology</option>
+                                            <option value="BSIT">BSIT</option>
+                                            <option value="CBM">CBM</option>
+                                            <option value="AB">AB</option>
+                                            @endif
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="civil_service">Civil Service</label>
+                                        <input type="text" name="civil_service" id="civil_service"
+                                            value="{{ Auth::user()->civil_service }}" class="form-control" placeholder="(Ex: Career Service Examination, Board Exam)
+                                            "required>
+                                        
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="home_address">Home Address</label>
+                                        <input type="text" name="home_address" id="home_address"
+                                            value="{{ Auth::user()->home_address }}" class="form-control" placeholder="Home Address"required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="age">Age</label>
+                                        <input type="number" name="age" id="age" value="{{ Auth::user()->age }}"
+                                            class="form-control" placeholder="Age"required>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="year_graduated">Year Graduated</label>
                                         <select name="year_graduated" id="year_graduated" class="form-control">
                                             <option value="{{ Auth::user()->year_graduated }}">
-                                                {{ Auth::user()->year_graduated }}</option>
+                                                --Select Year Graduated--</option>
                                             <option value="2009-2010">A.Y. 2009 - 2010</option>
                                             <option value="2010-2011">A.Y. 2010 - 2011</option>
                                             <option value="2011-2012">A.Y. 2011 - 2012</option>
@@ -130,9 +206,9 @@
 
                                     <div id="employed-fields" style="display: none;">
                                         <div class="form-group">
-                                            <label for="work_company">Work Company</label>
+                                            <label for="work_company">Name of Company</label>
                                             <input type="text" name="work_company" id="work_company"
-                                                value="{{ Auth::user()->work_company }}" class="form-control">
+                                                value="{{ Auth::user()->work_company }}" class="form-control" placeholder="Name of Company">  
                                         </div>
                                         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
                                         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -142,7 +218,7 @@
                                             <div class="input-group">
                                                 <input type="text" name="work_address"
                                                     value="{{ Auth::user()->work_address }}" id="work_address"
-                                                    class="form-control" readonly>
+                                                    class="form-control" placeholder="Work Address">
                                                 <div class="input-group-append">
                                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                                         data-target="#addressModal">Select Address</button>
@@ -153,7 +229,8 @@
                                         <div class="form-group">
                                             <label for="position_on_work">Position on Work</label>
                                             <input type="text" name="position_on_work" id="position_on_work"
-                                                value="{{ Auth::user()->position_on_work }}" class="form-control">
+                                                value="{{ Auth::user()->position_on_work }}" class="form-control" placeholder="(Ex: Instructor )
+                                                ">
                                         </div>
 
                                         <div class="form-group">
@@ -165,7 +242,7 @@
                                         <div class="form-group"> <label for="employed_status">Work Employment
                                                 Status</label> <select name="employed_status" id="employed_status"
                                                 class="form-control">
-                                                <option value="">Select Employment Status</option>
+                                                <option value="{{Auth::user()->employed_status}}">--Select Employment Status--</option>
                                                 <option value="Permanent/Regular"
                                                     {{ Auth::user()->employed_status == 'Permanent/Regular' ? 'selected' : '' }}>
                                                     Permanent/Regular</option>
@@ -196,16 +273,19 @@
                                             </select> </div>
 
                                         <div class="form-group">
-                                            <label for="job_to_course">Job to Course</label>
-                                            <input type="text" name="job_to_course" id="job_to_course"
-                                                value="{{ Auth::user()->job_to_course }}" class="form-control">
+                                            <label for="job_to_course">Is your job related to your Baccalaureate Degree?</label>
+                                            <select type="text" name="job_to_course" id="job_to_course"
+                                                 class="form-control">{{ Auth::user()->job_to_course }}
+                                                
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="monthly_income">Monthly Income</label>
                                             <select name="monthly_income" id="monthly_income" class="form-control">
                                                 <option value="{{ Auth::user()->monthly_income }}">
-                                                    {{ Auth::user()->monthly_income }}</option>
+                                                    --Select Monthly Income--</option>
                                                 <option value="Php 10,000 or lower">Php 10,000 or lower</option>
                                                 <option value="Php 10,001 to Php 20,000">Php 10,001 to Php 20,000</option>
                                                 <option value="Php 20,001 to Php 30,000">Php 20,001 to Php 30,000</option>
@@ -220,21 +300,41 @@
                                                 <option value="Php 100,000 or higher">Php 100,000 or higher</option>
                                             </select>
                                         </div>
-
                                     </div>
                                     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                                    <script>
-                                        $('#employment_status').on('change', function() {
-                                            if (this.value == 'employed') {
-                                                $('#employed-fields').show();
-                                            } else {
-                                                $('#employed-fields').hide();
-                                            }
-                                        });
-                                    </script>
-
-
-
+                                        <script>
+                                            $(document).ready(function() {
+                                                // Get the "employment_status" field
+                                                var employmentStatus = $('#employment_status');
+                                    
+                                                // Get the "employed-fields" div
+                                                var employedFields = $('#employed-fields');
+                                    
+                                                // Check the initial value of the "employment_status" field
+                                                if (employmentStatus.val() === 'employed') {
+                                                    // If the value is "employed", show the "employed-fields" div and make the fields required
+                                                    employedFields.show();
+                                                    employedFields.find('input, select').prop('required', true);
+                                                } else {
+                                                    // Otherwise, hide the "employed-fields" div and remove the "required" attribute
+                                                    employedFields.hide();
+                                                    employedFields.find('input, select').prop('required', false);
+                                                }
+                                    
+                                                // Add an event listener to the "employment_status" field
+                                                employmentStatus.on('change', function() {
+                                                    if ($(this).val() === 'employed') {
+                                                        // If the value is "employed", show the "employed-fields" div and make the fields required
+                                                        employedFields.show();
+                                                        employedFields.find('input, select').prop('required', true);
+                                                    } else {
+                                                        // Otherwise, hide the "employed-fields" div and remove the "required" attribute
+                                                        employedFields.hide();
+                                                        employedFields.find('input, select').prop('required', false);
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     <div type="hidden" id="map" style="height: 400px;"></div>
                                     <input type="text" name="work_lat" id="work_lat"
                                         value="{{ Auth::user()->work_lat }}"readonly>
@@ -245,7 +345,6 @@
                                             value="{{ Auth::user()->status }}" class="form-control">
                                     </div>
                                     <!-- Modal -->
-
                                     <div class="modal fade" id="addressModal" tabindex="-1" role="dialog"
                                         aria-labelledby="addressModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -396,8 +495,6 @@
                                             map.setView(workAddress, 13);
                                         }
 
-
-
                                         var profileForm = document.getElementById('profile-form');
                                         if (profileForm) {
                                             profileForm.addEventListener('submit', function(e) {
@@ -419,9 +516,7 @@
                                             });
                                         }
                                     </script>
-
-
-
+                                     @endif
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Update
                                             Profile</button>
@@ -451,7 +546,8 @@
                                             timer: 1500
                                         });
                                     @endif
-                                </script>
+                                </script>   
+                               
 
                             </div>
                         </div>

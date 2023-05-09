@@ -12,10 +12,12 @@
     <div class="col-md-4 mb-3">
       <select name="department" id="department" class="form-control">
         <option value="">All Departments</option>
-        <option value="sales" {{ request('department') === 'sales' ? 'selected' : '' }}>Sales</option>
-        <option value="marketing" {{ request('department') === 'marketing' ? 'selected' : '' }}>Marketing</option>
-        <option value="finance" {{ request('department') === 'finance' ? 'selected' : '' }}>Finance</option>
-        <option value="human resources" {{ request('department') === 'human resources' ? 'selected' : '' }}>Human Resources</option>
+        <option value="BSED" {{ request('department') === 'BSED' ? 'selected' : '' }}>BSED</option>
+        <option value="BTVTED" {{ request('department') === 'BTVTED' ? 'selected' : '' }}>BTVTED</option>
+        <option value="BSIT" {{ request('department') === 'BSIT' ? 'selected' : '' }}>BSIT</option>
+        <option value="Criminology" {{ request('department') === 'Criminology' ? 'selected' : '' }}>Criminology</option>
+        <option value="CBM" {{ request('department') === 'CBM' ? 'selected' : '' }}>CBM</option>
+        <option value="AB" {{ request('department') === 'AB' ? 'selected' : '' }}>AB</option>
       </select>
       <div class="col-md-2 mb-3">
         <button class="btn btn-primary btn-block" type="submit">Search</button>

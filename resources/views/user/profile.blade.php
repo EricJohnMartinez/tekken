@@ -17,10 +17,12 @@
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Minsu.png/640px-Minsu.png" alt="Profile Photo"
                       class="rounded-circle w-100">
               @endif
-             
+              @if ($user->media_urls['resume']) 
                 <a href="{{ $user->media_urls['resume'] }}" target="_blank" class="btn btn-primary">
                     <i class="bi bi-file-earmark-pdf"></i> View Resume
                 </a>
+                @else
+                @endif
                 </div>
               </div>
               <div class="col-sm-8">

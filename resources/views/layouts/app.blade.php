@@ -108,8 +108,6 @@
                         <p class="text-center">Please wait for admin approval.</p>
                     @else
                         @if (auth()->user()->hasRole('admin'))
-                        <a href="{{ route('pdf.records') }}" class="btn btn-outline-light mx-3 mb-4"
-                                 id="job-offers-link">Print</a>
                             <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Job Offers')" id="job-offers-link">Job Offers</a>
                             <a href="{{ route('userprofile.userIndex') }}" class="btn btn-outline-light mx-3 mb-4"
@@ -120,8 +118,8 @@
                                 onclick="updateTitle('Pending Users')" id="pending-users-link">View Pending Users</a>
                             <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Announcements')" id="announcements-link">Announcements</a>
-                                <a href="{{ route('messages.index') }}" class="btn btn-outline-light mx-3 mb-4"
-                                onclick="updateTitle('Message')" id="announcements-link">Chat Room</a>
+                            <a href="{{ route('messages.index') }}" class="btn btn-outline-light mx-3 mb-4"
+                                onclick="updateTitle('Chat Room')" id="announcements-link">Chat Room</a>
                         @endif
                         @if (auth()->user()->hasRole('alumni'))
                             <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4"
@@ -130,12 +128,18 @@
                                 onclick="updateTitle('AlumnConnect')" id="alumnconnect-link">AlumnConnect</a>
                             <a href="{{ route('announcements.index') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Announcements')" id="announcements-link">Announcements</a>
+                            <a href="{{ route('userprofile.userIndex') }}" class="btn btn-outline-light mx-3 mb-4"
+                                onclick="updateTitle('Users')" id="users-link">Users</a>
+                            <a href="{{ route('messages.index') }}" class="btn btn-outline-light mx-3 mb-4"
+                                onclick="updateTitle('Chat Room')" id="announcements-link">Chat Room</a>
                         @endif
                         @if (auth()->user()->hasRole('employer'))
                             <a href="{{ route('jobs.index') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Job Offers')" id="job-offers-link">Job Offers</a>
                             <a href="{{ route('userprofile.userIndex') }}" class="btn btn-outline-light mx-3 mb-4"
                                 onclick="updateTitle('Users')" id="users-link">Users</a>
+                            <a href="{{ route('messages.index') }}" class="btn btn-outline-light mx-3 mb-4"
+                                onclick="updateTitle('Chat Room')" id="announcements-link">Chat Room</a>
                         @endif
                     @endif
                 </div>

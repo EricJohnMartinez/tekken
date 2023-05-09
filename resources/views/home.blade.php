@@ -91,11 +91,12 @@
         </div>
     </div>
 
+    <a href="{{ route('pdf.records') }}" class="btn btn-primary ml-auto mb-4">Print Records</a>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
     <div class="card">
-
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -113,8 +114,54 @@
             </div>
         </div>
     </div>
-
-    <div type="hidden" id="map" style="height: 400px;"></div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="container text-center">
+                        <h1>Job Related to Baccalaureate Degree</h1>
+                        <canvas id="jobRelate"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="container text-center">
+                        <h1>CIVIL SERVICE ELIGIBILITY</h1>
+                        <canvas id="civil"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="container text-center">
+                        <h1>Work Employment Status</h1>
+                        <canvas id="workStat"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="container text-center">
+                        <h1>POSITION ON WORK</h1>
+                        <canvas id="position"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mb-3">Alumni's Work Address</h3>
+                <div type="hidden" id="map" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+ 
     <script>
         
         var map = L.map('map').setView([12.8797, 121.7740], 6);
@@ -136,9 +183,179 @@
     <script>
         var dept = {!! json_encode($dept) !!};
         var empStat = {!! json_encode($empStat) !!};
+        var jobRelate = {!! json_encode($jobRelate) !!};
+        var civil = {!! json_encode($civil) !!};
+        var workStat = {!! json_encode($workStat) !!};
+        var position = {!! json_encode($position) !!};
+
+    </script>
+    <script> 
+        var ctx = document.getElementById('position').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: position.map(d => d.label),
+                datasets: [{
+                        label: [position.map(d => d.label)],
+                        data: position.map(d => d.value),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 2)',
+                            'rgba(54, 162, 235, 2)',
+                            'rgba(255, 206, 86, 2)',
+                            'rgba(75, 192, 192, 2)',
+                            'rgba(153, 102, 255, 2)',
+                            'rgba(255, 159, 64, 2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script> 
+        var ctx = document.getElementById('workStat').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: workStat.map(d => d.label),
+                datasets: [{
+                        label: [workStat.map(d => d.label)],
+                        data: workStat.map(d => d.value),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 2)',
+                            'rgba(54, 162, 235, 2)',
+                            'rgba(255, 206, 86, 2)',
+                            'rgba(75, 192, 192, 2)',
+                            'rgba(153, 102, 255, 2)',
+                            'rgba(255, 159, 64, 2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script> 
+        var ctx = document.getElementById('civil').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: civil.map(d => d.label),
+                datasets: [{
+                        label: [civil.map(d => d.label)],
+                        data: civil.map(d => d.value),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 2)',
+                            'rgba(54, 162, 235, 2)',
+                            'rgba(255, 206, 86, 2)',
+                            'rgba(75, 192, 192, 2)',
+                            'rgba(153, 102, 255, 2)',
+                            'rgba(255, 159, 64, 2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
     </script>
     <script>
-        console.log(empStat);
+        
+        var ctx = document.getElementById('jobRelate').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: jobRelate.map(d => d.label),
+                datasets: [{
+                        label: [jobRelate.map(d => d.label)],
+                        data: jobRelate.map(d => d.value),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 2)',
+                            'rgba(54, 162, 235, 2)',
+                            'rgba(255, 206, 86, 2)',
+                            'rgba(75, 192, 192, 2)',
+                            'rgba(153, 102, 255, 2)',
+                            'rgba(255, 159, 64, 2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+       
         var ctx = document.getElementById('employmentStatus').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'doughnut',

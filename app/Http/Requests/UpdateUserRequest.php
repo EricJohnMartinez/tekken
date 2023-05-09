@@ -45,6 +45,29 @@ class UpdateUserRequest extends FormRequest
             'monthly_income' => 'nullable',
             'status' => 'nullable',
         ];
+
+        if (!Auth::user()->hasRole('employer'))
+            { $rules = [
+                'email' => 'required|email',
+                'name' => 'required',
+                'department' => 'required',
+                'home_address' => 'required',
+                'employment_status' => 'required',
+                'age' => 'required',
+                'photo' => 'nullable|image',
+                'resume' => 'nullable|mimes:docx,pdf,doc',
+                'year_graduated' => 'nullable',
+                'work_company' => 'nullable',
+                'work_address' => 'nullable',
+                'position_on_work' => 'nullable',
+                'date_hired' => 'nullable',
+                'employed_status' => 'nullable',
+                'civil_service' => 'required',
+                'job_to_course' => 'nullable',
+                'monthly_income' => 'nullable',
+                'status' => 'nullable'
+            ];
+            }
         return $rules;
     }
 
