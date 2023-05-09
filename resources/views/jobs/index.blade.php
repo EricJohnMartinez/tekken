@@ -241,6 +241,7 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
+                                        
                                         <div class="col-md-4">
                                             @if (is_null($job->media_url))
                                                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
@@ -249,9 +250,13 @@
                                                 <img src="{{ $job->media_url }}" alt="" class="img-thumbnail">
                                             @endif
                                         </div>
+
                                         <div class="col-md-8">
                                             <div>
                                                 <h5 class="card-title pt-2">{{ $job->title }}</h5>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title pt-2">{{$job->descript}}</h5>
                                             </div>
                                             <p class="card-text">{{ $job->created_at_formatted }}</p>
                                             @if (auth()->user()->hasRole('admin'))

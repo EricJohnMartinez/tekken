@@ -90,13 +90,19 @@
                                     <div class="form-group">
                                         <label for="employment_status">Employment Status</label>
                                         <select name="employment_status" id="employment_status" class="form-control">
-                                            <option value="">--Select Employment Status--</option>
-                                            <option value="employed"
-                                                {{ Auth::user()->employment_status == 'employed' ? 'selected' : '' }}>
-                                                Employed</option>
-                                            <option value="unemployed"
-                                                {{ Auth::user()->employment_status == 'unemployed' ? 'selected' : '' }}>
-                                                Unemployed</option>
+                                            <option value="{{ Auth::user()->employment_status}}">--Select Employment Status--</option>
+                                            @if (Auth::user()->hasRole('employer'))
+                                            <option value="employer"
+                                                {{ Auth::user()->employment_status == 'employer' ? 'selected' : '' }}>
+                                                Employer</option>
+                                            @else
+                                                <option value="employed"
+                                                    {{ Auth::user()->employment_status == 'employed' ? 'selected' : '' }}>
+                                                    Employed</option>
+                                                <option value="unemployed"
+                                                    {{ Auth::user()->employment_status == 'unemployed' ? 'selected' : '' }}>
+                                                    Unemployed</option>
+                                            @endif
                                         </select>
                                     </div>
 
