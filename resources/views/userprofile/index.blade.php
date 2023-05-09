@@ -20,7 +20,7 @@
                                 <h2 style="font-family: Arial, sans-serif;">{{ Auth::user()->name }}</h2>
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-geo-alt-fill"></i> Lives in
                                     {{ Auth::user()->home_address }}</p>
-                                <p style="font-family: Arial, sans-serif;"><i class="bi bi-building"></i> Work Address
+                                <p style="font-family: Arial, sans-serif;"><i class="bi bi-building"></i> Work Address:
                                     {{ Auth::user()->work_address }}</p>
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-calendar"></i> Age:
                                     {{ Auth::user()->age }}</p>

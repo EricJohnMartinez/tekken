@@ -36,7 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         'position_on_work',
         'date_hired',
         'employed_status',
-        'civil_sevice',
+        'civil_service',
         'job_to_course',
         'monthly_income',
         'status'

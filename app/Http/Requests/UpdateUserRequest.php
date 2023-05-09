@@ -62,7 +62,7 @@ class UpdateUserRequest extends FormRequest
             'position_on_work.required' => 'Please enter your position at work.',
             'date_hired.required' => 'Please enter the date you were hired.',
             'employed_status.required' => 'Please enter your employed status.',
-            'civil_sevice.required' => 'Please enter your civil service status.',
+            'civil_service.required' => 'Please enter your civil service status.',
             'job_to_course.required' => 'Please enter your job to course.',
             'monthly_income.required' => 'Please enter your monthly income.',
             'status.required' => 'Please enter your status.',
