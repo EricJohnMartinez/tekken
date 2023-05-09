@@ -24,33 +24,52 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-public function index()
-{
-    $users = User::all();
-    $dept = [];
-    $empStat = [];
-    $uniqueDepts = $users->pluck('department')->unique();
-    foreach ($uniqueDepts as $department) {
-        $count = $users->where('department', $department)->count();
-        if ($department && $count) {
-            $dept[] = [
-                'label' => $department,
-                'value' => $count
-            ];
+    public function index()
+    {
+        $users = User::all();
+        $dept = [];
+        $empStat = [];
+        $userCoordinates = [];
+    
+        // Get department and employment status data
+        $uniqueDepts = $users->pluck('department')->unique();
+        foreach ($uniqueDepts as $department) {
+            $count = $users->where('department', $department)->count();
+            if ($department && $count) {
+                $dept[] = [
+                    'label' => $department,
+                    'value' => $count
+                ];
+            }
         }
-    }
-    $uniqueEmpStats = $users->pluck('employment_status')->unique();
-    foreach ($uniqueEmpStats as $status) {
-        $count = $users->where('employment_status', $status)->count();
-        if ($status && $count) {
-            $empStat[] = [
-                'label' => $status,
-                'value' => $count
-            ];
+    
+        $uniqueEmpStats = $users->pluck('employment_status')->unique();
+        foreach ($uniqueEmpStats as $status) {
+            $count = $users->where('employment_status', $status)->count();
+            if ($status && $count) {
+                $empStat[] = [
+                    'label' => $status,
+                    'value' => $count
+                ];
+            }
         }
+    
+        // Get user coordinates
+        foreach ($users as $user) {
+            if ($user->work_lat && $user->work_lng) {
+                $userCoordinates[] = [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'lat' => $user->work_lat,
+                    'lng' => $user->work_lng,
+                    'address' => $user->work_address
+                ];
+            }
+        }
+    
+        return view('home', compact('dept', 'empStat', 'userCoordinates'));
     }
-    return view('home', compact('dept','empStat'));
-}
+    
 
 public function pdf()
 {

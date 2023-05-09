@@ -33,7 +33,7 @@
             {{-- <div class="col-md-8">
                 <div class="row">
                     <div class="col">
-                        @if (auth()->user()->status=='completed')
+                        @if (auth()->user()->status == 'completed')
                             <div class="col-md-8">
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
@@ -91,7 +91,9 @@
         </div>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
     <div class="card">
 
         <div class="card-body">
@@ -111,6 +113,26 @@
             </div>
         </div>
     </div>
+
+    <div type="hidden" id="map" style="height: 400px;"></div>
+    <script>
+        
+        var map = L.map('map').setView([12.8797, 121.7740], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Retrieve user coordinates from the database
+        var userCoordinates = {!! json_encode($userCoordinates) !!};
+
+        // Loop through the user coordinates and add markers to the map
+        for (var i = 0; i < userCoordinates.length; i++) {
+            var userMarker = L.marker([userCoordinates[i].lat, userCoordinates[i].lng]).addTo(map);
+            userMarker.bindPopup("<div style='font-weight: bold; font-size: 16px;'>" + userCoordinates[i].name + "'s Work Address</div><br>" + userCoordinates[i].address);
+
+        }
+    </script>
+
     <script>
         var dept = {!! json_encode($dept) !!};
         var empStat = {!! json_encode($empStat) !!};
@@ -123,27 +145,28 @@
             data: {
                 labels: empStat.map(d => d.label),
                 datasets: [{
-                    label: [empStat.map(d => d.label)],
-                    data: empStat.map(d => d.value),
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 2)',
-                        'rgba(54, 162, 235, 2)',
-                        'rgba(255, 206, 86, 2)',
-                        'rgba(75, 192, 192, 2)',
-                        'rgba(153, 102, 255, 2)',
-                        'rgba(255, 159, 64, 2)'],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                },
-                
-            ]
+                        label: [empStat.map(d => d.label)],
+                        data: empStat.map(d => d.value),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 2)',
+                            'rgba(54, 162, 235, 2)',
+                            'rgba(255, 206, 86, 2)',
+                            'rgba(75, 192, 192, 2)',
+                            'rgba(153, 102, 255, 2)',
+                            'rgba(255, 159, 64, 2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+
+                ]
             },
             options: {
                 scales: {
@@ -156,7 +179,7 @@
             }
         });
     </script>
-    
+
     <script>
         var ctx = document.getElementById('Department').getContext('2d');
         var Department = new Chart(ctx, {
@@ -194,4 +217,5 @@
             }
         });
     </script>
+
 @endsection

@@ -8,9 +8,10 @@
                     <div class="card-body ">
                         <div class="row">
                             <div class="col-md-3">
-                                @if ( Auth::user()->media_urls['photo'] )
-                                    <img style="height: 170px; object-fit: contain;" src="{{ Auth::user()->media_urls['photo'] }}"
-                                        alt="Profile Photo" class="img-thumbnail rounded-circle w-100">
+                                @if (Auth::user()->media_urls['photo'])
+                                    <img style="height: 170px; object-fit: contain;"
+                                        src="{{ Auth::user()->media_urls['photo'] }}" alt="Profile Photo"
+                                        class="img-thumbnail rounded-circle w-100">
                                 @else
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Minsu.png/640px-Minsu.png"
                                         alt="Profile Photo" class="rounded-circle w-100">
@@ -28,24 +29,25 @@
                                             <label for="photo" class="form-label">
                                                 Profile Photo
                                             </label>
-                                            <input class='dropzone' type="file" name="photo" id="photo" accept="image/*">
+                                            <input class='dropzone' type="file" name="photo" id="photo"
+                                                accept="image/*">
                                             @error('photo')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                         <div class="col">
                                             <label for="resume" class="form-label">Resume</label>
                                             <input name="resume" type="file" id="">
                                             @error('resume')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
@@ -160,11 +162,38 @@
                                                 value="{{ Auth::user()->date_hired }}" class="form-control">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="employed_status">Employed Status</label>
-                                            <input type="text" name="employed_status" id="employed_status"
-                                                value="{{ Auth::user()->employed_status }}" class="form-control">
-                                        </div>
+                                        <div class="form-group"> <label for="employed_status">Work Employment
+                                                Status</label> <select name="employed_status" id="employed_status"
+                                                class="form-control">
+                                                <option value="">Select Employment Status</option>
+                                                <option value="Permanent/Regular"
+                                                    {{ Auth::user()->employed_status == 'Permanent/Regular' ? 'selected' : '' }}>
+                                                    Permanent/Regular</option>
+                                                <option value="Contractual"
+                                                    {{ Auth::user()->employed_status == 'Contractual' ? 'selected' : '' }}>
+                                                    Contractual</option>
+                                                <option value="Probationary"
+                                                    {{ Auth::user()->employed_status == 'Probationary' ? 'selected' : '' }}>
+                                                    Probationary</option>
+                                                <option value="Job Order"
+                                                    {{ Auth::user()->employed_status == 'Job Order' ? 'selected' : '' }}>
+                                                    Job Order</option>
+                                                <option value="Part-Time"
+                                                    {{ Auth::user()->employed_status == 'Part-Time' ? 'selected' : '' }}>
+                                                    Part-Time</option>
+                                                <option value="Self-Employed"
+                                                    {{ Auth::user()->employed_status == 'Self-Employed' ? 'selected' : '' }}>
+                                                    Self-Employed</option>
+                                                <option value="Contract of Service"
+                                                    {{ Auth::user()->employed_status == 'Contract of Service' ? 'selected' : '' }}>
+                                                    Contract of Service</option>
+                                                <option value="Casual"
+                                                    {{ Auth::user()->employed_status == 'Casual' ? 'selected' : '' }}>
+                                                    Casual</option>
+                                                <option value="None"
+                                                    {{ Auth::user()->employed_status == 'None' ? 'selected' : '' }}>None
+                                                </option>
+                                            </select> </div>
 
                                         <div class="form-group">
                                             <label for="job_to_course">Job to Course</label>

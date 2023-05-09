@@ -160,14 +160,14 @@
         </main>
 </body>
 
-<footer style="background-color: rgba(69, 211, 69, 0.509);" class="text-left py-1 fixed-bottom">
+{{-- <footer style="background-color: rgba(69, 211, 69, 0.509);" class="text-left py-1 fixed-bottom">
     <div class="container d-flex justify-content-between">
         <p>&copy; 2023 AlumnConnect</p>
         <a class="btn btn-success"onclick="updateTitle('Welcome to MinSU-AlumnConnect')"
         href="{{ url('/home') }}">Home</a>
         <button class="btn btn-light">Contact Us</button>
     </div>
-</footer>
+</footer> --}}
 
 
 
