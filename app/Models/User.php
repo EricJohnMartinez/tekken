@@ -30,7 +30,16 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         'work_address',
         'age',
         'department',
-
+        'year_graduated',
+        'work_company',
+        'employment_status',
+        'position_on_work',
+        'date_hired',
+        'employed_status',
+        'civil_service',
+        'job_to_course',
+        'monthly_income',
+        'status'
     ];
 
     /**
@@ -70,29 +79,16 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->created_at->format('M d, Y');
     }
 
-    public function getMediaUrlAttribute()
-    {
-        $media = $this->getFirstMedia('photos');
+    public function getMediaUrlsAttribute()
+{
+    $resume = $this->getFirstMediaUrl('resume');
+    $photo = $this->getFirstMediaUrl('photos');
 
-        if ($media) {
-            return $media->getUrl();
-        }
-
-        return null;
-    }
-
-    public function surveyStatus()
-    {
-        $survey = Survey::where('user_id', $this->id)->first();
-        if ($survey) {
-            if ($survey->status === 'completed') {
-                return 'completed';
-            } else {
-                return 'in_progress';
-            }
-        } else {
-            return 'not_started';
-        }
-    }
+    return [
+        'resume' => $resume,
+        'photo' => $photo,
+    ];
+}
     
+
 }

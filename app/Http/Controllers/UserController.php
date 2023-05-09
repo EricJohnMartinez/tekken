@@ -7,6 +7,7 @@ use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
@@ -58,7 +59,8 @@ class UserController extends Controller
     {
         abort_if(!auth()->user()->can('show user'), Response::HTTP_FORBIDDEN, 'Unauthorized');
         $users = User::all();
-        return view('userprofile.index', compact('users'));
+        $survey = Survey::all();
+        return view('userprofile.index', compact('users','survey'));
     }
 
     public function edit(User $user)
@@ -73,11 +75,15 @@ class UserController extends Controller
 
         $keyword = $request->input('keyword');
         $department = $request->input('department');
+        $employment_status = $request->input('employment_status'); 
 
         $users = User::when($keyword, function ($query, $keyword) {
                     $query->where('name', 'LIKE', "%{$keyword}%")
                         ->orWhere('work_address', 'LIKE', "%{$keyword}%")
                         ->orWhere('department', 'LIKE', "%{$keyword}%");
+                })
+                ->when($employment_status, function ($query, $employment_status) { // Added this line
+                    $query->where('employment_status', $employment_status);
                 })
                 ->when($department, function ($query, $department) {
                     $query->where('department', $department);
@@ -86,6 +92,7 @@ class UserController extends Controller
 
         return view('userprofile.view', ['users' => $users, 'keyword' => $keyword]);
     }
+
     public function survey(Request $request)
     {
         $validatedData = $request->validate([
@@ -101,7 +108,8 @@ class UserController extends Controller
             'employed_status' => 'required|string',
             'civil_service' => 'nullable|string',
             'awards_received' => 'nullable|string',
-            'job_to_course' => 'nullable|string'
+            'job_to_course' => 'nullable|string',
+            'status' => 'required|string'
         ]);
     
         $validatedData['user_id'] = auth()->user()->id;
@@ -113,6 +121,7 @@ class UserController extends Controller
 
     public function updateSurvey(Request $request, $id)
     {
+        $survey = Survey::find($id);
         $validatedData = $request->validate([
             'course' => 'required|string',
             'age' => 'required|integer',
@@ -129,10 +138,11 @@ class UserController extends Controller
             'job_to_course' => 'nullable|string',
             'status' => 'required|string',
         ]);
-
-        $survey = Survey::find($id);
+    
+        $validatedData['status'] = 'completed'; // set default value of "completed" for "status" field
+    
         $survey->update($validatedData);
-
+    
         return redirect()->back();
     }
 
@@ -144,19 +154,37 @@ class UserController extends Controller
 
 
     public function update(UpdateUserRequest $request, User $user)
-    {
-        abort_if(!auth()->user()->can('update user'), Response::HTTP_FORBIDDEN, 'Unauthorized');
-    // dd($request->has('photo'));
+{
+    abort_if(!auth()->user()->can('update user'), Response::HTTP_FORBIDDEN, 'Unauthorized');
 
     $user = User::where('id', auth()->user()->id)->first();
-        $user->update($request->validated());
+    $user->update($request->validated());
 
-        if ($request->has('photo')) {
-            $user->clearMediaCollection('photos');
-            $user->addMediaFromRequest('photo')->toMediaCollection('photos');
-        }
-
-        return redirect()->route('userprofile.index')->with('success', 'User profile updated successfully');
+    if ($request->has('photo')) {
+        $user->clearMediaCollection('photos');
+        $user->addMediaFromRequest('photo')->toMediaCollection('photos');
     }
+    
+    if ($request->has('resume')) {
+        $user->clearMediaCollection('resume');
+        $user->addMediaFromRequest('resume')->toMediaCollection('resume');
+    }
+    // Geocode the work address
+    $client = new Client();
+    $workAddress = urlencode($user->work_address);
+
+    $response = $client->request('GET', "https://nominatim.openstreetmap.org/search?q={$workAddress}&format=json");
+    $workLocation = json_decode($response->getBody(), true);
+    if (!empty($workLocation)) {
+        $user->work_lat = $workLocation[0]['lat'];
+        $user->work_lng = $workLocation[0]['lon'];
+    }
+
+    $user->save();
+
+    return redirect()->route('userprofile.index')->with('success', 'User profile updated successfully');
+}
+
+    
 
 }

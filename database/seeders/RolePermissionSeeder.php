@@ -50,11 +50,15 @@ class RolePermissionSeeder extends Seeder
                 'access job',
                 'destroy job',
                 'edit job',
+                
                 'store job',
                 'update job',
                 'create job',
                 'show job',
+
                 'view user',
+                'update user',
+                'show user',
                 
             ],
             'alumni' => [

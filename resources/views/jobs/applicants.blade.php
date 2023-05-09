@@ -20,8 +20,9 @@
                             <th>Email</th>
                             <th>Contact Number</th>
                             <th>Resume</th>
-                            <th>Action</th>
                             <th>Applied At</th>
+                            <th>Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -31,16 +32,17 @@
                                 <td>{{ $applicant->email }}</td>
                                 <td>{{ $applicant->number }}</td>
                                 <td>
-                                    @if ($applicant->resume)
-                                        <a href="{{ $applicant->resume->getUrl() }}" target="_blank">{{ $applicant->resume->file_name }}</a>
+                                    @if ($applicant->media_url)
+                                        <a href="{{ $applicant->media_url }}" target="_blank">View</a>
                                     @else
                                         N/A
                                     @endif
                                 </td>
+                                
+                                <td>{{ $applicant->created_at->format('M d, Y h:i A') }}</td>
                                 <td><form action="{{ route('user.profile', $applicant->user_id) }}">
                                     <button type="submit" class="btn btn-primary">Visit Profile</button>
                                 </form></td>
-                                <td>{{ $applicant->created_at->format('M d, Y h:i A') }}</td>
                             </tr>
                         @endforeach
                     </tbody>

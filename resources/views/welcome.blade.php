@@ -72,24 +72,16 @@
                                 </div>
                             </div>
     
-                            <div class="row mb-3">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-    
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                            
     
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
-    
+                                    <a class="btn btn-danger" href="{{ route('register') }}">
+                                        {{ __('Register') }}
+                                    </a>
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
@@ -103,18 +95,6 @@
             </div>
         </div>
     </div>
-      {{-- <div class="my-3">
-         @if (Route::has('login'))
-          @auth
-            <a href="{{ url('/home') }}" class="btn btn-primary mx-3">Home</a>
-          @else
-            <a href="{{ route('login') }}" class="btn btn-primary mx-3">Login</a>
-             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="btn btn-secondary mx-3">Register</a>
-             @endif
-          @endauth
-         @endif
-      </div> --}}
     </div>
   </body>
 </html>

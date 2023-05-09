@@ -27,7 +27,6 @@ class Survey extends Model
         'awards_received',
         'job_to_course',
         'status'
-
     ];
 
     public function user()

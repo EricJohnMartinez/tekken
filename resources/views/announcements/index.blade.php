@@ -42,34 +42,47 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="tags" class="form-label">Tags</label>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        value="1st Year Students" id="tag1" name="tags[]">
-                                                    <label class="form-check-label" for="tag1">
-                                                        1st Year Students
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        value="2nd Year Students" id="tag2" name="tags[]">
-                                                    <label class="form-check-label" for="tag2">
-                                                        2nd Year Students
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        value="3rd Year Students" id="tag3" name="tags[]">
-                                                    <label class="form-check-label" for="tag3">
-                                                        3rd Year Students
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        value="4th Year Students" id="tag4" name="tags[]">
-                                                    <label class="form-check-label" for="tag4">
-                                                        4th Year Students
-                                                    </label>
+                                                <label for="Department" class="form-label">Department</label>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="All Department" value="All Department"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="All Department">
+                                                            <label for="All Department">All Department</label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="BSED" value="BSED"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="BSED">
+                                                            <label for="BSED">BSED</label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="BTVTED" value="BTVTED"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="BTVTED">
+                                                            <label for="BTVTED">BTVTED</label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="Criminology" value="Criminology"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="Criminology">
+                                                            <label for="Criminology">Criminology</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="BSIT" value="BSIT"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="BSIT">
+                                                            <label for="BSIT">BSIT</label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="CBM" value="CBM"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="CBM">
+                                                            <label for="CBM">CBM</label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" name="tags[]" id="AB" value="AB"
+                                                                class="@error('tags') is-invalid @enderror" aria-label="AB">
+                                                            <label for="AB">AB</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 @error('tags')
                                                     <span class="invalid-feedback" role="alert">
@@ -81,7 +94,7 @@
 
                                             <div class="mb-3">
                                                 <label for="descript" class="form-label">Announcement Description</label>
-                                                <textarea class="form-control" id="descript" name="descript" placeholder="Job Description"></textarea>
+                                                <textarea class="form-control" id="descript" name="descript" placeholder="Announcement Description"></textarea>
                                                 @error('descript')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Modal -->
+    <!--Store Modal -->
     <div class="modal fade" id="createJobModal" tabindex="-1" aria-labelledby="createJobModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="createJobModalLabel">Create Job</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                   
                 </div>
                 <div class="modal-body">
                     <!-- Place your form code here -->
@@ -17,9 +15,9 @@
                         @csrf
                         <!-- Form fields here -->
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Title</label>
+                            <label for="Title" class="form-label">Job Title</label>
                             <input name="title" value="{{ old('title') }}" type="text"
-                                class="form-control @error('title') is-invalid @enderror" id="exampleFormControlInput1"
+                                class="form-control @error('title') is-invalid @enderror" id="Title"
                                 placeholder="Title">
                             @error('title')
                                 <span class="invalid-feedback" role="alert">
@@ -28,9 +26,9 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Company Name</label>
+                            <label for="Company" class="form-label">Company Name</label>
                             <input name="company" value="{{ old('company') }}" type="text"
-                                class="form-control @error('company') is-invalid @enderror" id="exampleFormControlInput1"
+                                class="form-control @error('company') is-invalid @enderror" id="Company"
                                 placeholder="Company Name">
                             @error('company')
                                 <span class="invalid-feedback" role="alert">
@@ -39,9 +37,9 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Location</label>
+                            <label for="Location" class="form-label">Location</label>
                             <input name="location" value="{{ old('location') }}" type="text"
-                                class="form-control @error('location') is-invalid @enderror" id="exampleFormControlInput1"
+                                class="form-control @error('location') is-invalid @enderror" id="Location"
                                 placeholder="Location">
                             @error('location')
                                 <span class="invalid-feedback" role="alert">
@@ -50,9 +48,9 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Website</label>
+                            <label for="Website" class="form-label">Website</label>
                             <input name="website" value="{{ old('website') }}" type="text"
-                                class="form-control @error('website') is-invalid @enderror" id="exampleFormControlInput1"
+                                class="form-control @error('website') is-invalid @enderror" id="Website"
                                 placeholder="Website">
                             @error('website')
                                 <span class="invalid-feedback" role="alert">
@@ -61,26 +59,47 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Tags</label>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="need-many-employee" value="need-many-employee"
-                                    class="@error('tags') is-invalid @enderror" aria-label="Need Many Employee">
-                                <label for="need-many-employee">Need Many Employee</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="urgent" value="urgent"
-                                    class="@error('tags') is-invalid @enderror" aria-label="Urgent">
-                                <label for="urgent">Urgent</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="vacancy" value="vacancy"
-                                    class="@error('tags') is-invalid @enderror" aria-label="Vacancy">
-                                <label for="vacancy">Vacancy</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tags[]" id="high-priority" value="high-priority"
-                                    class="@error('tags') is-invalid @enderror" aria-label="High Priority">
-                                <label for="high-priority">High Priority</label>
+                            <label for="Department" class="form-label">Department</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="All Department" value="All Department"
+                                            class="@error('tags') is-invalid @enderror" aria-label="All Department">
+                                        <label for="All Department">All Department</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="BSED" value="BSED"
+                                            class="@error('tags') is-invalid @enderror" aria-label="BSED">
+                                        <label for="BSED">BSED</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="BTVTED" value="BTVTED"
+                                            class="@error('tags') is-invalid @enderror" aria-label="BTVTED">
+                                        <label for="BTVTED">BTVTED</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Criminology" value="Criminology"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Criminology">
+                                        <label for="Criminology">Criminology</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="BSIT" value="BSIT"
+                                            class="@error('tags') is-invalid @enderror" aria-label="BSIT">
+                                        <label for="BSIT">BSIT</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="CBM" value="CBM"
+                                            class="@error('tags') is-invalid @enderror" aria-label="CBM">
+                                        <label for="CBM">CBM</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="AB" value="AB"
+                                            class="@error('tags') is-invalid @enderror" aria-label="AB">
+                                        <label for="AB">AB</label>
+                                    </div>
+                                </div>
                             </div>
                             @error('tags')
                                 <span class="invalid-feedback" role="alert">
@@ -88,11 +107,10 @@
                                 </span>
                             @enderror
                         </div>
-
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <label for="Email" class="form-label">Email address</label>
                             <input name="email" value="{{ old('email') }}" type="email"
-                                class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1"
+                                class="form-control @error('email') is-invalid @enderror" id="Email"
                                 placeholder="name@example.com">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -101,8 +119,8 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Job Description</label>
-                            <textarea name="descript" class="form-control @error('descript') is-invalid @enderror" id="exampleFormControlInput1"
+                            <label for="Description" class="form-label">Job Description</label>
+                            <textarea name="descript" class="form-control @error('descript') is-invalid @enderror" id="Description"
                                 placeholder="Job Description">
                     {{ old('descript') }}
                 </textarea>
@@ -113,7 +131,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Photo</label>
+                            <label for="Photo" class="form-label">Image</label>
                             <input name="photo" type="file" id="">
                             @error('photo')
                                 <span class="invalid-feedback" role="alert">
@@ -130,6 +148,8 @@
             </div>
         </div>
     </div>
+
+    
     <script>
         $(document).ready(function() {
             // Hide any error messages when the modal is opened
@@ -172,12 +192,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(!auth()->user()->hasRole('alumni'))
                 <div class="mb-4">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#createJobModal">
                         Post a Job
                     </button>
                 </div>
+                @else
+                @endif
                 <div class="row">
                     @if (session()->has('success'))
                         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
@@ -223,6 +246,7 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
+
                                         <div class="col-md-4">
                                             @if (is_null($job->media_url))
                                                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
@@ -231,9 +255,13 @@
                                                 <img src="{{ $job->media_url }}" alt="" class="img-thumbnail">
                                             @endif
                                         </div>
+
                                         <div class="col-md-8">
                                             <div>
                                                 <h5 class="card-title pt-2">{{ $job->title }}</h5>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title pt-2">{{$job->descript}}</h5>
                                             </div>
                                             <p class="card-text">{{ $job->created_at_formatted }}</p>
                                             @if (auth()->user()->hasRole('admin'))
@@ -266,7 +294,7 @@
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
                     <link rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css" />
-
+                    
                     <script>
                         function deleteJob(jobId) {
                             Swal.fire({

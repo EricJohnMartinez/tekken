@@ -1,51 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('userIndex') }}" method="GET" class="mb-4">
-    <div class="row container">
-      <div class="col-md-6 mb-3 ">
-        <input type="text" class="form-control" name="keyword" placeholder="Search users..." value="{{ $keyword ?? '' }}">
-      </div>
-      <div class="col-md-4 mb-3">
-        <select name="department" id="department" class="form-control">
-          <option value="">All Departments</option>
-          <option value="sales" {{ request('department') === 'sales' ? 'selected' : '' }}>Sales</option>
-          <option value="marketing" {{ request('department') === 'marketing' ? 'selected' : '' }}>Marketing</option>
-          <option value="finance" {{ request('department') === 'finance' ? 'selected' : '' }}>Finance</option>
-          <option value="human resources" {{ request('department') === 'human resources' ? 'selected' : '' }}>Human Resources</option>
-        </select>
-      </div>
+<form action="{{ route('userIndex') }}" method="GET" class="form-inline mb-4">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <input type="text" class="form-control" name="keyword" placeholder="Search users..." value="{{ $keyword ?? '' }}">
       <div class="col-md-2 mb-3">
         <button class="btn btn-primary btn-block" type="submit">Search</button>
       </div>
     </div>
-  </form>
-
+    <div class="col-md-4 mb-3">
+      <select name="department" id="department" class="form-control">
+        <option value="">All Departments</option>
+        <option value="BSED" {{ request('department') === 'BSED' ? 'selected' : '' }}>BSED</option>
+        <option value="BTVTED" {{ request('department') === 'BTVTED' ? 'selected' : '' }}>BTVTED</option>
+        <option value="BSIT" {{ request('department') === 'BSIT' ? 'selected' : '' }}>BSIT</option>
+        <option value="Criminology" {{ request('department') === 'Criminology' ? 'selected' : '' }}>Criminology</option>
+        <option value="CBM" {{ request('department') === 'CBM' ? 'selected' : '' }}>CBM</option>
+        <option value="AB" {{ request('department') === 'AB' ? 'selected' : '' }}>AB</option>
+      </select>
+      <div class="col-md-2 mb-3">
+        <button class="btn btn-primary btn-block" type="submit">Search</button>
+      </div>
+    </div>
+      <div class="col-md-4 mb-3">
+      <select class="form-control ml-2" id="employment_status" name="employment_status">
+        <option value="">Employment Status</option>
+        <option value="employed" {{ request('employment_status')  == 'employed' ? 'selected' : '' }}>Employed</option>
+        <option value="unemployed" {{ request('employment_status')  == 'unemployed' ? 'selected' : '' }}>Unemployed</option>
+        <option value="employer" {{ request('employment_status')  == 'employer' ? 'selected' : '' }}>Employer</option>
+      </select>
+      <div class="col-md-2 mb-3">
+        <button class="btn btn-primary btn-block" type="submit">Search</button>
+      </div>
+    </div>
+    
+  </div>
+</form>
   @if ($users->isEmpty())
   <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
     <p style="text-align: center; font-size: 1.5rem; font-weight: bold;">No Alumni found.</p>
   </div>
 @else
-  <div class="row">
-    @foreach ($users as $user)
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ $user->name }}</h5>
-                <p class="card-text">Work Address: {{ $user->work_address }}</p>
-                <p class="card-text">Department: {{ $user->department }}</p>
-                <form action="{{ route('user.profile', $user->id) }}">
-                    <button type="submit" class="btn btn-primary">Visit Profile</button>
-                </form>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Date Joined {{$user->created_at}}</small>
-            </div>
-        </div>
-    </div>
-    
-    @endforeach
+<div class="row">
+  @foreach ($users as $user)
+  <div class="col-md-4 mb-4">
+    <div class="card border @if ($user->employment_status == 'unemployed') border-danger @elseif ($user->employment_status == 'employed') border-primary @else border-success @endif border-3">
+          <div class="card-body">
+              <h5 class="card-title">{{ $user->name }}</h5>
+              <p class="card-text">Employment Status: {{ $user->employment_status}}</p>
+              <p class="card-text">Department: {{ $user->department }}</p>
+              <form action="{{ route('user.profile', $user->id) }}">
+                  <button type="submit" class="btn btn-primary">Visit Profile</button>
+              </form>
+          </div>
+          <div class="card-footer">
+              <small class="text-muted">Date Joined {{$user->created_at}}</small>
+          </div>
+      </div>
+  </div>
+  @endforeach
 </div>
+
 <div class="d-flex justify-content-center">
     {{ $users->links() }}
 </div>

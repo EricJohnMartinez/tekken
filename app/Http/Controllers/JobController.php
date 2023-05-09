@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreJobApply;
-use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Mail\NewJobNotification;
+use App\Http\Requests\StoreJobApply;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\StoreJobRequest;
+use App\Http\Requests\UpdateJobRequest;
 
 class JobController extends Controller
 {
@@ -48,16 +51,20 @@ class JobController extends Controller
     public function store(StoreJobRequest $request)
     {
         abort_if(!auth()->user()->can('store job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
-
+        
         $job = Job::create($request->validated());
         if ($request->has('photo')) {
             $job->addMediaFromRequest('photo')->toMediaCollection('photos');
         }
-
+    
+        // Send notification email to all users
+        $users = User::all();
+        Mail::to($users)->send(new NewJobNotification($job));
+    
         $jobs = Job::paginate(10);
-
+    
         session()->flash('success', 'Record added');
-
+    
         return redirect()->route('jobs.index')->with([
             'jobs' => $jobs,
         ]);
@@ -125,6 +132,7 @@ class JobController extends Controller
 
     public function applicants(Job $job)
     {
+        
         abort_if(!auth()->user()->can('access job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
         $applicants = $job->applicants()->paginate(10);
         return view('jobs.applicants', compact('job', 'applicants'));

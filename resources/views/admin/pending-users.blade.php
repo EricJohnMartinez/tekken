@@ -30,6 +30,7 @@
                                     <tr>
                                         <th>Date Created</th>
                                         <th>Name</th>
+                                        <th>email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -38,6 +39,7 @@
                                         <tr>
                                             <td>{{$user->created_at_formatted}}</td>
                                             <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="{{route('admin.approve-user', $user->id)}}" class="btn btn-primary">Approve</a>
                                                 <a href="{{route('admin.decline-user', $user->id)}}" class="btn btn-danger">Decline</a>
