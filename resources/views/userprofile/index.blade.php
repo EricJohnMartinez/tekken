@@ -38,8 +38,8 @@
                                 @endif
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-geo-alt-fill"></i> Lives in
                                     {{ Auth::user()->home_address }}</p>
-                                <p style="font-family: Arial, sans-serif;"><i class="bi bi-building"></i> Work Address:
-                                    {{ Auth::user()->work_address }}</p>
+                                <p style="font-family: Arial, sans-serif;"><i class="bi bi-building"></i> Employment Status:
+                                    {{ Auth::user()->employment_status }}</p>
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-calendar"></i> Age:
                                     {{ Auth::user()->age }}</p>
                                 <p style="font-family:Arial, sans-serif;"><i class="bi bi-person"></i> Department:
