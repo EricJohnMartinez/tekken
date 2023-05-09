@@ -90,12 +90,9 @@
             </div>
         </div>
     </div>
-
+    @if (Auth::user()->hasRole('admin'))
     <a href="{{ route('pdf.records') }}" class="btn btn-primary ml-auto mb-4">Print Records</a>
-
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -161,6 +158,7 @@
             </div>
         </div>
     </div>
+    @endif
  
     <script>
         

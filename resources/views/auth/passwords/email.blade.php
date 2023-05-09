@@ -69,6 +69,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
+                                <a class="btn btn-success" href="{{ route('login') }}">
+                                    {{ __('Login') }}
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -77,9 +80,7 @@
         </div>
     </div>
 </div>
-
     </div>
-    
   </body>
 </html>
 

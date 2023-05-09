@@ -79,7 +79,9 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
-    
+                                    <a class="btn btn-danger" href="{{ route('register') }}">
+                                        {{ __('Register') }}
+                                    </a>
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
@@ -93,18 +95,6 @@
             </div>
         </div>
     </div>
-      {{-- <div class="my-3">
-         @if (Route::has('login'))
-          @auth
-            <a href="{{ url('/home') }}" class="btn btn-primary mx-3">Home</a>
-          @else
-            <a href="{{ route('login') }}" class="btn btn-primary mx-3">Login</a>
-             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="btn btn-secondary mx-3">Register</a>
-             @endif
-          @endauth
-         @endif
-      </div> --}}
     </div>
   </body>
 </html>

@@ -10,6 +10,10 @@
                     <div class="card-header mb-3">
                         <div class="d-flex justify-content-between">
                             <h2 class="text-center">{{ $job->title }}</h2>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a class="btn btn-primary"
+                                    href="{{ route('jobs.index') }}">Back</a>
+                              </div>
                         </div>
                     </div>
                     <div class="card-body mb-3">
