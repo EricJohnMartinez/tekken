@@ -33,7 +33,7 @@ class UpdateUserRequest extends FormRequest
             'employment_status' => 'nullable',
             'age' => 'nullable',
             'photo' => 'nullable|image',
-            'resume' => 'required|mimes:docx,pdf,doc',
+            'resume' => 'nullable|mimes:docx,pdf,doc',
             'year_graduated' => 'nullable',
             'work_company' => 'nullable',
             'work_address' => 'nullable',

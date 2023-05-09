@@ -94,7 +94,7 @@
 
                                             <div class="mb-3">
                                                 <label for="descript" class="form-label">Announcement Description</label>
-                                                <textarea class="form-control" id="descript" name="descript" placeholder="Job Description"></textarea>
+                                                <textarea class="form-control" id="descript" name="descript" placeholder="Announcement Description"></textarea>
                                                 @error('descript')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

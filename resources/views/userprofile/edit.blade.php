@@ -23,27 +23,29 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                    <div class="mb-3">
-                                        <label for="photo" class="form-label">
-                                            Profile Photo
-                                        </label>
-                                        <input class='dropzone' type="file" name="photo" id="photo"
-                                            accept="image/*">
-                                        @error('photo')
+                                    <div class="mb-3 row">
+                                        <div class="col">
+                                            <label for="photo" class="form-label">
+                                                Profile Photo
+                                            </label>
+                                            <input class='dropzone' type="file" name="photo" id="photo" accept="image/*">
+                                            @error('photo')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Resume</label>
-                                        <input name="resume"  type="file"  id="">
-                                        @error('resume')
+                                            @enderror
+                                        </div>
+                                        <div class="col">
+                                            <label for="resume" class="form-label">Resume</label>
+                                            <input name="resume" type="file" id="">
+                                            @error('resume')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                    @enderror
+                                            @enderror
+                                        </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"

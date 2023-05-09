@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Modal -->
+    <!--Store Modal -->
     <div class="modal fade" id="createJobModal" tabindex="-1" aria-labelledby="createJobModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -148,6 +148,8 @@
             </div>
         </div>
     </div>
+
+    
     <script>
         $(document).ready(function() {
             // Hide any error messages when the modal is opened
@@ -241,7 +243,7 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
-                                        
+
                                         <div class="col-md-4">
                                             @if (is_null($job->media_url))
                                                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
