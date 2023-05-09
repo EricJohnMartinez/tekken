@@ -8,8 +8,8 @@
                     <div class="card-body ">
                         <div class="row">
                             <div class="col-md-3">
-                                @if (Auth::user()->media_url)
-                                    <img style="height: 170px; object-fit: contain;" src="{{ Auth::user()->media_url }}"
+                                @if ( Auth::user()->media_urls['photo'] )
+                                    <img style="height: 170px; object-fit: contain;" src="{{ Auth::user()->media_urls['photo'] }}"
                                         alt="Profile Photo" class="img-thumbnail rounded-circle w-100">
                                 @else
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Minsu.png/640px-Minsu.png"
@@ -35,6 +35,15 @@
                                             </span>
                                         @enderror
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Resume</label>
+                                        <input name="resume"  type="file"  id="">
+                                        @error('resume')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                    </div>
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
@@ -48,7 +57,8 @@
                                     <div class="form-group">
                                         <label for="department">Department</label>
                                         <select name="department" id="department" class="form-control">
-                                            <option value="{{ Auth::user()->department }}">{{ Auth::user()->department }}</option>
+                                            <option value="{{ Auth::user()->department }}">{{ Auth::user()->department }}
+                                            </option>
                                             <option value="BSED">BSED</option>
                                             <option value="BTVTED">BTVTED</option>
                                             <option value="Criminology">Criminology</option>
@@ -57,7 +67,13 @@
                                             <option value="AB">AB</option>
                                         </select>
                                     </div>
-                                    
+
+                                    <div class="form-group">
+                                        <label for="civil_service">Civil Service</label>
+                                        <input type="text" name="civil_service" id="civil_service"
+                                            value="{{ Auth::user()->civil_service }}" class="form-control">
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="home_address">Home Address</label>
                                         <input type="text" name="home_address" id="home_address"
@@ -65,13 +81,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="age">Age</label>
-                                        <input type="number" name="age" id="age"
-                                            value="{{ Auth::user()->age }}" class="form-control">
+                                        <input type="number" name="age" id="age" value="{{ Auth::user()->age }}"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="year_graduated">Year Graduated</label>
                                         <select name="year_graduated" id="year_graduated" class="form-control">
-                                            <option value="{{ Auth::user()->year_graduated }}">{{ Auth::user()->year_graduated }}</option>
+                                            <option value="{{ Auth::user()->year_graduated }}">
+                                                {{ Auth::user()->year_graduated }}</option>
                                             <option value="2009-2010">A.Y. 2009 - 2010</option>
                                             <option value="2010-2011">A.Y. 2010 - 2011</option>
                                             <option value="2011-2012">A.Y. 2011 - 2012</option>
@@ -90,11 +107,12 @@
                                     <div class="form-group">
                                         <label for="employment_status">Employment Status</label>
                                         <select name="employment_status" id="employment_status" class="form-control">
-                                            <option value="{{ Auth::user()->employment_status}}">--Select Employment Status--</option>
+                                            <option value="{{ Auth::user()->employment_status }}">--Select Employment
+                                                Status--</option>
                                             @if (Auth::user()->hasRole('employer'))
-                                            <option value="employer"
-                                                {{ Auth::user()->employment_status == 'employer' ? 'selected' : '' }}>
-                                                Employer</option>
+                                                <option value="employer"
+                                                    {{ Auth::user()->employment_status == 'employer' ? 'selected' : '' }}>
+                                                    Employer</option>
                                             @else
                                                 <option value="employed"
                                                     {{ Auth::user()->employment_status == 'employed' ? 'selected' : '' }}>
@@ -127,39 +145,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="position_on_work">Position on Work</label>
                                             <input type="text" name="position_on_work" id="position_on_work"
-                                                value="{{ Auth::user()->position_on_work }}"
-                                                class="form-control">
+                                                value="{{ Auth::user()->position_on_work }}" class="form-control">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="date_hired">Date Hired</label>
                                             <input type="date" name="date_hired" id="date_hired"
-                                                value="{{Auth::user()->date_hired }}"
-                                                class="form-control">
+                                                value="{{ Auth::user()->date_hired }}" class="form-control">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="employed_status">Employed Status</label>
                                             <input type="text" name="employed_status" id="employed_status"
-                                                value="{{ Auth::user()->employed_status }}"
-                                                class="form-control">
+                                                value="{{ Auth::user()->employed_status }}" class="form-control">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="job_to_course">Job to Course</label>
                                             <input type="text" name="job_to_course" id="job_to_course"
-                                                value="{{Auth::user()->job_to_course }}"
-                                                class="form-control">
+                                                value="{{ Auth::user()->job_to_course }}" class="form-control">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="monthly_income">Monthly Income</label>
                                             <select name="monthly_income" id="monthly_income" class="form-control">
-                                                <option value="{{Auth::user()->monthly_income }}">{{Auth::user()->monthly_income }}</option>
+                                                <option value="{{ Auth::user()->monthly_income }}">
+                                                    {{ Auth::user()->monthly_income }}</option>
                                                 <option value="Php 10,000 or lower">Php 10,000 or lower</option>
                                                 <option value="Php 10,001 to Php 20,000">Php 10,001 to Php 20,000</option>
                                                 <option value="Php 20,001 to Php 30,000">Php 20,001 to Php 30,000</option>
@@ -169,10 +184,12 @@
                                                 <option value="Php 60,001 to Php 70,000">Php 60,001 to Php 70,000</option>
                                                 <option value="Php 70,001 to Php 80,000">Php 70,001 to Php 80,000</option>
                                                 <option value="Php 80,001 to Php 90,000">Php 80,001 to Php 90,000</option>
-                                                <option value="Php 90,001 to Php 100,000">Php 90,001 to Php 100,000</option>
+                                                <option value="Php 90,001 to Php 100,000">Php 90,001 to Php 100,000
+                                                </option>
                                                 <option value="Php 100,000 or higher">Php 100,000 or higher</option>
                                             </select>
                                         </div>
+
                                     </div>
                                     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
                                     <script>
@@ -186,12 +203,12 @@
                                     </script>
 
 
-                                    <div class="form-group">
-                                        <label for="civil_service">Civil Service</label>
-                                        <input type="text" name="civil_service" id="civil_service"
-                                            value="{{ Auth::user()->civil_service }}" class="form-control">
-                                    </div>
 
+                                    <div type="hidden" id="map" style="height: 400px;"></div>
+                                    <input type="text" name="work_lat" id="work_lat"
+                                        value="{{ Auth::user()->work_lat }}"readonly>
+                                    <input type="text" name="work_lng" id="work_lng"
+                                        value="{{ Auth::user()->work_lng }}"readonly>
                                     <div class="form-group">
                                         <input type="hidden" name="status" id="status"
                                             value="{{ Auth::user()->status }}" class="form-control">
@@ -320,11 +337,7 @@
                                         });
                                     </script>
 
-                                    <div type="hidden" id="map" style="height: 400px;"></div>
-                                    <input type="text" name="work_lat" id="work_lat"
-                                        value="{{ Auth::user()->work_lat }}"readonly>
-                                    <input type="text" name="work_lng" id="work_lng"
-                                        value="{{ Auth::user()->work_lng }}"readonly>
+
 
                                     <script>
                                         var workLat = {{ Auth::user()->work_lat ?? 'null' }};
@@ -352,7 +365,7 @@
                                             map.setView(workAddress, 13);
                                         }
 
-                                      
+
 
                                         var profileForm = document.getElementById('profile-form');
                                         if (profileForm) {

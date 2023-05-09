@@ -164,7 +164,11 @@ class UserController extends Controller
         $user->clearMediaCollection('photos');
         $user->addMediaFromRequest('photo')->toMediaCollection('photos');
     }
-
+    
+    if ($request->has('resume')) {
+        $user->clearMediaCollection('resume');
+        $user->addMediaFromRequest('resume')->toMediaCollection('resume');
+    }
     // Geocode the work address
     $client = new Client();
     $workAddress = urlencode($user->work_address);

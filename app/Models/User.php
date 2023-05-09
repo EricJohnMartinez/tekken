@@ -79,14 +79,16 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->created_at->format('M d, Y');
     }
 
-    public function getMediaUrlAttribute()
-    {
-        $media = $this->getFirstMedia('photos');
+    public function getMediaUrlsAttribute()
+{
+    $resume = $this->getFirstMediaUrl('resume');
+    $photo = $this->getFirstMediaUrl('photos');
 
-        if ($media) {
-            return $media->getUrl();
-        }
+    return [
+        'resume' => $resume,
+        'photo' => $photo,
+    ];
+}
+    
 
-        return null;
-    }
 }
