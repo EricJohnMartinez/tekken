@@ -27,7 +27,7 @@ class StoreJobApply extends FormRequest
                 'name' => 'required',
                 'number' => 'required',
                 'email' => 'required|email',
-                'resume' => 'required|mimes:docx,pdf,doc',
+                'resume' => 'required|mimes:docx,pdf,doc|max:10240',
                 'user_id' => 'required',
                 'job_id' => 'required',
             ];

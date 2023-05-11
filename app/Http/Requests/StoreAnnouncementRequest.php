@@ -28,7 +28,7 @@ class StoreAnnouncementRequest extends FormRequest
             'descript' => 'required',
             'tags' => 'nullable|array',
             'tags.*' => 'nullable|string',
-            'photo' => 'nullable|image',
+            'photo' => 'nullable|image|max:10240',
             'user_id' => 'required|exists:users,id'
         ];
     }
