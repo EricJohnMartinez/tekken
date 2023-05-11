@@ -3,7 +3,7 @@
 
 <head>
     <title>Alumni Records</title>
-	<style>
+    <style>
         @page {
             margin: 7mm 7mm 7mm 7mm;
             size: folio landscape;
@@ -13,13 +13,14 @@
         th,
         td {
             font-family: "Calibri", sans-serif;
-            font-size: 14px; /* added font-size property */
+            font-size: 14px;
+            /* added font-size property */
         }
 
         h1 {
             font-size: 1.5rem;
             text-align: center;
-			margin: 0;
+            margin: 0;
         }
 
         h3 {
@@ -54,19 +55,48 @@
             background-color: #f2f2f2;
             font-size: 0.9rem;
         }
-		body {
+
+        body {
             padding-bottom: 1cm;
+        }
+
+        header {
+            position: fixed;
+            /* bottom: 0; */
+            padding-bottom: 100px;
+            top: 0%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            border-bottom: 1px solid black;
+            background: white;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-footer-group;
+        }
+
+        button {
+            display: none;
+        }
+
+        body {
+            margin: 0;
         }
     </style>
 </head>
 
 <body>
+    <header>
+        <h1>Mindoro State University</h1>
+        <p>Calapan City Campus</p>
+        <p>College Department</p>
+    </header>
     <main>
-		<div>
-            <h1>Mindoro State University</h1>
-            <p>Calapan City Campus</p>
-            <p>College Department</p>
-        </div>
         <h3>Employability Status of Graduates A.Y. 2009-2010</h3>
         <h4>Department: BSED</h4>
         <table>
