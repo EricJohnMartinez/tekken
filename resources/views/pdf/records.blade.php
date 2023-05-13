@@ -39,14 +39,30 @@
 </head>
 <body>
 	<header>
-        <img src="{{ public_path('minsu.jpg') }}" alt="Mindoro State University logo">
         <div>
             <h1>Mindoro State University</h1>
             <p>Calapan City Campus</p>
+			<p>College Department</p>
         </div>
     </header>
 	<main>
-		<!-- Your content here -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div>
+			@foreach ($users as $user )
+			@if ($user->year_graduated == '2020-2021')
+			<h4>Employability Status of Graduates A.Y. 2020-2021</h4>
+				@if ($user->department == 'BSED')
+				<h5>Course: BSIT</h5>
+					<p>{{$user->name}}</p>
+				@endif
+				@endif
+		@endforeach
+	</div>	
 	</main>
 </body>
 </html>

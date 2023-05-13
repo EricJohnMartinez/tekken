@@ -123,19 +123,11 @@ public function pdf()
 {
     date_default_timezone_set('Asia/Manila');
 
-    $employmentStatusCounts = User::groupBy('employment_status')
-        ->selectRaw('employment_status, count(*) as count')
-        ->pluck('count', 'employment_status');
-
-    $employmentStatuses = '';
-    foreach ($employmentStatusCounts as $status => $count) {
-        $employmentStatuses .= "$count $status ";
-    }
-    $employmentStatuses = rtrim($employmentStatuses, ',' );
+    $users = User::all();
 
     $dompdf = new Dompdf();
     
-    $dompdf->loadHtml(view('pdf.records', compact('employmentStatuses')));
+    $dompdf->loadHtml(view('pdf.records', compact('users')));
 
     // (Optional) Set the paper size and orientation
     $dompdf->setPaper('A4', 'portrait');

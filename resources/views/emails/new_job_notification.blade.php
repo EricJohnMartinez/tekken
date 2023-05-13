@@ -3,5 +3,5 @@
 <ul>
     <li><strong>Title:</strong> {{ $job->title }}</li>
     <li><strong>Description:</strong> {{ $job->descript}}</li>
-    <li><strong>Photo:</strong> {{ $job->media_url}}</li>
+    
 </ul>
