@@ -121,9 +121,7 @@
                         <div class="mb-3">
                             <label for="Description" class="form-label">Job Description</label>
                             <textarea name="descript" class="form-control @error('descript') is-invalid @enderror" id="Description"
-                                placeholder="Job Description">
-                    {{ old('descript') }}
-                </textarea>
+                                placeholder="Job Description">{{ old('descript') }}</textarea>
                             @error('descript')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
