@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('home_address')->change();
             $table->string('work_address')->change();
             $table->integer('age')->change();
-            $table->string('id_number')->change();
+            $table->string('department')->change();
         });
     }
 };
