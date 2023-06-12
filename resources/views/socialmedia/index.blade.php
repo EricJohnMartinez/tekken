@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <!-- Edit modal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -60,17 +59,18 @@
 </div>
 
 @foreach ($socialmedias as $socialmedia)
-    <div class="card mt-5" style="width: 22rem; margin: 0 auto;">
+    <div class="card mt-5" style="width: 40rem; margin: 0 auto;">
         <img src="{{ $socialmedia->media_url }}" class="card-img-top" alt="">
         <div class="card-body">
-            
             <p class="card-text, h4">{{ $socialmedia->post }}</p>
             <p class="card-text">Posted on {{ $socialmedia->created_at_formatted }}</p>
             <div class="d-flex justify-content-between">
                 @can('store socialmedia')
+                @if (Auth::user()->id === $socialmedia->user_id)
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editModal" 
                         data-id="{{ $socialmedia->id }}" data-action="{{ route('socialmedia.update', ['socialmedia' => $socialmedia]) }}" 
                         data-post="{{ $socialmedia->post }}">Edit</button>
+                @endif
                 @endcan
                 @can('store socialmedia')
                     @if (Auth::user()->id === $socialmedia->user_id)

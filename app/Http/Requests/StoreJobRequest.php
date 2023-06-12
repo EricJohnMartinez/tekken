@@ -31,7 +31,7 @@ class StoreJobRequest extends FormRequest
             'location' => 'required',
             'website' => 'required',
             'tags' => 'nullable|array',
-            'tags.*' => 'nullable|string',
+            'tags.*' => 'nullable|string|max:255',
             'photo' => 'nullable|image|max:10240',
             'user_id' => 'required|exists:users,id'
         ];

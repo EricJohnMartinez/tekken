@@ -137,12 +137,21 @@
                                                 @if (Auth::user()->hasRole('employer'))
                                                     <option value="Employer">Employer</option>
                                                 @else
-                                                    <option value="BSED">BSED</option>
-                                                    <option value="BTVTED">BTVTED</option>
-                                                    <option value="Criminology">Criminology</option>
-                                                    <option value="BSIT">BSIT</option>
-                                                    <option value="CBM">CBM</option>
-                                                    <option value="AB">AB</option>
+                                                    <option value="Bachelor of Secondary Education (English) ">Bachelor of Secondary Education (English) </option>
+                                                    <option value="Bachelor of Secondary Education (Filipino) ">Bachelor of Secondary Education (Filipino) </option>
+                                                    <option value="Bachelor of Secondary Education (Mathematics) ">Bachelor of Secondary Education (Mathematics) </option>
+                                                    <option value="Bachelor of Secondary Education (Science) ">Bachelor of Secondary Education (Science) </option>
+                                                    <option value="Bachelor of Science in Tourism Management">Bachelor of Science in Tourism Management</option>
+                                                    <option value="Bachelor of Arts in Psychology">Bachelor of Arts in Psychology</option>
+                                                    <option value="Bachelor of Arts in English">Bachelor of Arts in English</option>
+                                                    <option value="Bachelor of Science in Criminology">Bachelor of Science in Criminology</option>
+                                                    <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+                                                    <option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Food Services Management)">Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Food Services Management)</option>
+                                                    <option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Automotive Technology)">Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Automotive Technology)</option>
+                                                    <option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Civil Technology)">Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Civil Technology)</option>
+                                                    <option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Garments & Fashion Design Technology)">Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Garments & Fashion Design Technology)</option>
+                                                    <option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Drafting Technology)">Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Drafting Technology)</option>
+                                                    <option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Electronics Technology)">Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Electronics Technology)</option>
                                                 @endif
                                             </select>
                                         </div>
@@ -339,7 +348,6 @@
                                                     employedFields.find('input, select').prop('required', false);
                                                 }
 
-                                                // Add an event listener to the "employment_status" field
                                                 employmentStatus.on('change', function() {
                                                     if ($(this).val() === 'employed') {
                                                         // If the value is "employed", show the "employed-fields" div and make the fields required
@@ -350,23 +358,24 @@
                                                         employedFields.hide();
                                                         employedFields.find('input, select').prop('required', false);
 
-                                                        // Reset the values of the form fields to empty strings or default values
+                                                        // Reset the values of the form fields to null or default values
                                                         $('#work_company').val('');
                                                         $('#work_address').val('');
                                                         $('#position_on_work').val('');
                                                         $('#date_hired').val('');
+                                                        $('#employed_status').val('');
                                                         $('#work_lat').val('');
                                                         $('#work_lng').val('');
-                                                        $('#job_to_course').val('No');
+                                                        $('#job_to_course').val('');
                                                         $('#monthly_income').val('');
                                                     }
                                                 });
                                             });
                                         </script>
                                         <div type="hidden" id="map" style="height: 400px;"></div>
-                                        <input type="text" name="work_lat" id="work_lat"
+                                        <input type="hidden" name="work_lat" id="work_lat"
                                             value="{{ Auth::user()->work_lat }}"readonly>
-                                        <input type="text" name="work_lng" id="work_lng"
+                                        <input type="hidden" name="work_lng" id="work_lng"
                                             value="{{ Auth::user()->work_lng }}"readonly>
                                         <div class="form-group">
                                             <input type="hidden" name="status" id="status"

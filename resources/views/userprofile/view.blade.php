@@ -11,13 +11,23 @@
     </div>
     <div class="col-md-4 mb-3">
       <select name="department" id="department" class="form-control">
-        <option value="">All Departments</option>
-        <option value="BSED" {{ request('department') === 'BSED' ? 'selected' : '' }}>BSED</option>
-        <option value="BTVTED" {{ request('department') === 'BTVTED' ? 'selected' : '' }}>BTVTED</option>
-        <option value="BSIT" {{ request('department') === 'BSIT' ? 'selected' : '' }}>BSIT</option>
-        <option value="Criminology" {{ request('department') === 'Criminology' ? 'selected' : '' }}>Criminology</option>
-        <option value="CBM" {{ request('department') === 'CBM' ? 'selected' : '' }}>CBM</option>
-        <option value="AB" {{ request('department') === 'AB' ? 'selected' : '' }}>AB</option>
+        <option value="">All Program</option>
+        <option value="Bachelor of Secondary Education (English)" {{ request('department') === 'Bachelor of Secondary Education (English)' ? 'selected' : '' }}>Bachelor of Secondary Education (English)</option>
+<option value="Bachelor of Secondary Education (Filipino)" {{ request('department') === 'Bachelor of Secondary Education (Filipino)' ? 'selected' : '' }}>Bachelor of Secondary Education (Filipino)</option>
+<option value="Bachelor of Secondary Education (Mathematics)" {{ request('department') === 'Bachelor of Secondary Education (Mathematics)' ? 'selected' : '' }}>Bachelor of Secondary Education (Mathematics)</option>
+<option value="Bachelor of Secondary Education (Science)" {{ request('department') === 'Bachelor of Secondary Education (Science)' ? 'selected' : '' }}>Bachelor of Secondary Education (Science)</option>
+<option value="Bachelor of Science in Tourism Management" {{ request('department') === 'Bachelor of Science in Tourism Management' ? 'selected' : '' }}>Bachelor of Science in Tourism Management</option>
+<option value="Bachelor of Arts in Psychology" {{ request('department') === 'Bachelor of Arts in Psychology' ? 'selected' : '' }}>Bachelor of Arts in Psychology</option>
+<option value="Bachelor of Arts in English" {{ request('department') === 'Bachelor of Arts in English' ? 'selected' : '' }}>Bachelor of Arts in English</option>
+<option value="Bachelor of Science in Criminology" {{ request('department') === 'Bachelor of Science in Criminology' ? 'selected' : '' }}>Bachelor of Science in Criminology</option>
+<option value="Bachelor of Science in Information Technology" {{ request('department') === 'Bachelor of Science in Information Technology' ? 'selected' : '' }}>Bachelor of Science in Information Technology</option>
+<option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Food Services Management)" {{ request('department') === 'Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Food Services Management)' ? 'selected' : '' }}>Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Food Services Management)</option>
+<option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Automotive Technology)" {{ request('department') === 'Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Automotive Technology)' ? 'selected' : '' }}>Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Automotive Technology)</option>
+<option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Civil Technology)" {{ request('department') === 'Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Civil Technology)' ? 'selected' : '' }}>Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Civil Technology)</option>
+<option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Garments & Fashion Design Technology)" {{ request('department') === 'Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Garments & Fashion Design Technology)' ? 'selected' : '' }}>Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Garments & Fashion Design Technology)</option>
+<option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Drafting Technology)" {{ request('department') === 'Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Drafting Technology)' ? 'selected' : '' }}>Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Drafting Technology)</option>
+<option value="Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Electronics Technology)" {{ request('department') === 'Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Electronics Technology)' ? 'selected' : '' }}>Bachelor of Technical Vocational Teacher Education/(BSIED/BTTE) (Electronics Technology)</option>
+
       </select>
       <div class="col-md-2 mb-3">
         <button class="btn btn-primary btn-block" type="submit">Search</button>

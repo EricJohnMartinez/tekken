@@ -32,7 +32,7 @@
    <div class="container my-5 text-center">
       <img src="http://minsu.edu.ph/template/images/logo.png" alt="Logo" />
       <h3 class="my-3 text-white">Welcome to Mindoro State University</h3>
-      <h1 class="my-3 text-white">MinSU-AlumConnect</h1>
+      <h1 class="my-3 text-white">MinSU-AlumnConnect</h1>
 
       <div class="container">
         <div class="row justify-content-center">

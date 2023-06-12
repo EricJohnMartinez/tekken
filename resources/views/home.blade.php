@@ -96,37 +96,24 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <div class="container text-center">
                         <h1>DEPARTMENT</h1>
                         <canvas id="Department"></canvas>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="container text-center">
                         <h1>EMPLOYMENT STATUS</h1>
                         <canvas id="employmentStatus"></canvas>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <div class="container text-center">
                         <h1>Job Related to Baccalaureate Degree</h1>
                         <canvas id="jobRelate"></canvas>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="container text-center">
-                        <h1>CIVIL SERVICE ELIGIBILITY</h1>
-                        <canvas id="civil"></canvas>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -134,13 +121,19 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
+                    <div class="container text-center">
+                        <h1>CIVIL SERVICE ELIGIBILITY</h1>
+                        <canvas id="civil"></canvas>
+                    </div>
+                </div>
+                <div class="col-4">
                     <div class="container text-center">
                         <h1>Work Employment Status</h1>
                         <canvas id="workStat"></canvas>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="container text-center">
                         <h1>POSITION ON WORK</h1>
                         <canvas id="position"></canvas>

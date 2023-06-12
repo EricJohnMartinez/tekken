@@ -25,7 +25,7 @@
                                     {{ Auth::user()->home_address }}</p>
                                 <p style="font-family: Arial, sans-serif;"><i class="bi bi-calendar"></i> Age:
                                     {{ Auth::user()->age }}</p>
-                                <p style="font-family:Arial, sans-serif;"><i class="bi bi-person"></i> Department:
+                                <p style="font-family:Arial, sans-serif;"><i class="bi bi-person"></i> Program:
                                     {{ Auth::user()->department }}</p>
                                 @else
                                 @if (Auth::user()->media_urls['resume'])

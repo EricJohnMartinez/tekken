@@ -25,11 +25,15 @@
                                     @else
                                     @endif
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#sendJobModal">
-                                        <i class="bi bi-file-earmark-pdf"></i> Send A Job
-                                    </button>
+                                    @if (!Auth::user()->hasRole('alumni'))
+                                        @if ($user->employment_status == 'unemployed')
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#sendJobModal">
+                                            <i class="bi bi-file-earmark-pdf"></i> Send A Job
+                                        </button>
+                                        @endif
+                                    @endif
+                                       
                                     <script>
                                         $(document).ready(function() {
                                             $('#sendJobModal').on('shown.bs.modal', function() {
@@ -43,7 +47,7 @@
                                 <h3 class="mb-3">{{ $user->name }}</h3>
                                 <p class="lead"><strong>Email:</strong> {{ $user->email }}</p>
                                 <p class="lead"><strong>Employment Status:</strong> {{ $user->employment_status }}</p>
-                                <p class="lead"><strong>Department:</strong> {{ $user->department }}</p>
+                                <p class="lead"><strong>Program:</strong> {{ $user->department }}</p>
                             </div>
                         </div>
                     </div>

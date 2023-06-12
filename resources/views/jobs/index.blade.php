@@ -3,11 +3,10 @@
 @section('content')
     <!--Store Modal -->
     <div class="modal fade" id="createJobModal" tabindex="-1" aria-labelledby="createJobModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="createJobModalLabel">Create Job</h5>
-                   
                 </div>
                 <div class="modal-body">
                     <!-- Place your form code here -->
@@ -59,47 +58,91 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="Department" class="form-label">Department</label>
+                            <label for="Department" class="form-label">Program</label>
                             <div class="row">
-                                <div class="col-md-6">
+                                
                                     <div>
                                         <input type="checkbox" name="tags[]" id="All Department" value="All Department"
                                             class="@error('tags') is-invalid @enderror" aria-label="All Department">
-                                        <label for="All Department">All Department</label>
+                                        <label for="All Department">All Program</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="tags[]" id="BSED" value="BSED"
-                                            class="@error('tags') is-invalid @enderror" aria-label="BSED">
-                                        <label for="BSED">BSED</label>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Secondary Education (English)" value="BSED(English)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Secondary Education (English)">
+                                        <label for="Bachelor of Secondary Education (English)">Bachelor of Secondary Education (English)</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="tags[]" id="BTVTED" value="BTVTED"
-                                            class="@error('tags') is-invalid @enderror" aria-label="BTVTED">
-                                        <label for="BTVTED">BTVTED</label>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Secondary Education (Filipino)" value="BSED(Filipino)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Secondary Education (Filipino)">
+                                        <label for="Bachelor of Secondary Education (Filipino)">Bachelor of Secondary Education (Filipino)</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="tags[]" id="Criminology" value="Criminology"
-                                            class="@error('tags') is-invalid @enderror" aria-label="Criminology">
-                                        <label for="Criminology">Criminology</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div>
-                                        <input type="checkbox" name="tags[]" id="BSIT" value="BSIT"
-                                            class="@error('tags') is-invalid @enderror" aria-label="BSIT">
-                                        <label for="BSIT">BSIT</label>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Secondary Education (Mathematics)" value="BSED(Mathematics)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Secondary Education (Mathematics)">
+                                        <label for="Bachelor of Secondary Education (Mathematics)">Bachelor of Secondary Education (Mathematics)</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="tags[]" id="CBM" value="CBM"
-                                            class="@error('tags') is-invalid @enderror" aria-label="CBM">
-                                        <label for="CBM">CBM</label>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Secondary Education (Science)" value="BSED(Science)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Secondary Education (Science)">
+                                        <label for="Bachelor of Secondary Education (Science)">Bachelor of Secondary Education (Science)</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="tags[]" id="AB" value="AB"
-                                            class="@error('tags') is-invalid @enderror" aria-label="AB">
-                                        <label for="AB">AB</label>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Science in Tourism Management" value="HTM"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Science in Tourism Management">
+                                        <label for="Bachelor of Science in Tourism Management">Bachelor of Science in Tourism Management</label>
                                     </div>
-                                </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Arts in Psychology" value="AB(Psychology)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Arts in Psychology">
+                                        <label for="Bachelor of Arts in Psychology">Bachelor of Arts in Psychology</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Arts in English" value=AB(English)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Arts in English">
+                                        <label for="Bachelor of Arts in English">Bachelor of Arts in English</label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Science in Criminology" value="Criminology"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Science in Criminology">
+                                        <label for="Bachelor of Science in Criminology">Bachelor of Science in Criminology</label>
+                                    </div>
+                            
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Science in Information Technology" value="BSIT"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Science in Information Technology">
+                                        <label for="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Technical Vocational Teacher Education (Food Services Management)" value="BTTE(Food Services Management)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Technical Vocational Teacher Education (Food Services Management)">
+                                        <label for="Bachelor of Technical Vocational Teacher Education (Food Services Management)">Bachelor of Technical Vocational Teacher Education (Food Services Management)</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Technical Vocational Teacher Education (Automotive Technology)" value="BTTE(Automotive Technology)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Technical Vocational Teacher Education (Automotive Technology)">
+                                        <label for="Bachelor of Technical Vocational Teacher Education (Automotive Technology)">Bachelor of Technical Vocational Teacher Education (Automotive Technology)</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Technical Vocational Teacher Education (Civil Technology)" value="BTTE(Civil Technology)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Technical Vocational Teacher Education (Civil Technology)">
+                                        <label for="Bachelor of Technical Vocational Teacher Education (Civil Technology)">Bachelor of Technical Vocational Teacher Education (Civil Technology)</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Technical Vocational Teacher Education (Garments & Fashion Design Technology)" value="BTTE(Garments & Fashion Design Technology)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Technical Vocational Teacher Education (Garments & Fashion Design Technology)">
+                                        <label for="Bachelor of Technical Vocational Teacher Education (Garments & Fashion Design Technology)">Bachelor of Technical Vocational Teacher Education (Garments & Fashion Design Technology)</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Technical Vocational Teacher Education (Drafting Technology)" value="BTTE(Drafting Technology)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Technical Vocational Teacher Education (Drafting Technology)">
+                                        <label for="Bachelor of Technical Vocational Teacher Education (Drafting Technology)">Bachelor of Technical Vocational Teacher Education (Drafting Technology)</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="tags[]" id="Bachelor of Technical Vocational Teacher Education (Electronics Technology)" value="BTTE(Electronics Technology)"
+                                            class="@error('tags') is-invalid @enderror" aria-label="Bachelor of Technical Vocational Teacher Education (Electronics Technology)">
+                                        <label for="Bachelor of Technical Vocational Teacher Education (Electronics Technology)">Bachelor of Technical Vocational Teacher Education (Electronics Technology)</label>
+                                    </div>
                             </div>
                             @error('tags')
                                 <span class="invalid-feedback" role="alert">

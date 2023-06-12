@@ -477,7 +477,2261 @@
             </tbody>
         </table>
 
+        <h3>Employability Status of Graduates A.Y. 2011-2012</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2011-2012' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2011-2012' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2011-2012' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2011-2012' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2011-2012' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2011-2012' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2012-2013</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2012-2013' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2012-2013' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2012-2013' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2012-2013' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2012-2013' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2012-2013' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2013-2014</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2013-2014' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2013-2014' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2013-2014' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2013-2014' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2013-2014' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2013-2014' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2014-2015</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2014-2015' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2014-2015' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2014-2015' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2014-2015' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2014-2015' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2014-2015' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2015-2016</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2015-2016' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2015-2016' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2015-2016' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2015-2016' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2015-2016' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2015-2016' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2016-2017</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2016-2017' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2016-2017' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2016-2017' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2016-2017' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2016-2017' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2016-2017' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2017-2018</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2017-2018' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2017-2018' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2017-2018' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2017-2018' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2017-2018' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2017-2018' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2018-2019</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2018-2019' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2018-2019' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2018-2019' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2018-2019' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2018-2019' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2018-2019' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2019-2020</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2019-2020' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2019-2020' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2019-2020' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2019-2020' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2019-2020' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2019-2020' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2020-2021</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2020-2021' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2020-2021' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2020-2021' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2020-2021' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2020-2021' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2020-2021' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h3>Employability Status of Graduates A.Y. 2021-2022</h3>
+        <h4>Department: BSED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2021-2022' && $user->department == 'BSED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BTVTED</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2021-2022' && $user->department == 'BTVTED')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: Criminology</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2021-2022' && $user->department == 'Criminology')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: BSIT</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2021-2022' && $user->department == 'BSIT')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: CBM</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2021-2022' && $user->department == 'CBM')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <h4>Department: AB</h4>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>NAME</th>
+                <th>COMPANY/INSTITUTION WHERE EMPLOYED</th>
+                <th>ADDRESS</th>
+                <th>POSITION</th>
+                <th>EMPLOYMENT STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                @foreach ($users as $user)
+                    @if ($user->year_graduated == '2021-2022' && $user->department == 'AB')
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->work_company }}</td>
+                            <td>{{ $user->home_address }}</td>
+                            <td>{{ $user->position_on_work }}</td>
+                            <td>{{ $user->employed_status }}</td>
+                        </tr>
+                        <?php $counter++; ?>
+                    @endif
+                @endforeach
+                <?php if ($counter == 1): ?>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No Data Found!</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
     </main>
 </body>
-
 </html>

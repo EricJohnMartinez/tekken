@@ -49,26 +49,29 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreJobRequest $request)
-    {
-        abort_if(!auth()->user()->can('store job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
-        
-        $job = Job::create($request->validated());
-        if ($request->has('photo')) {
-            $job->addMediaFromRequest('photo')->toMediaCollection('photos');
-        }
+{
+    abort_if(!auth()->user()->can('store job'), Response::HTTP_FORBIDDEN, 'Unauthorized');
     
-        // Send notification email to all users
-        $users = User::all();
-        Mail::to($users)->send(new NewJobNotification($job));
-    
-        $jobs = Job::paginate(10);
-    
-        session()->flash('success', 'Record added');
-    
-        return redirect()->route('jobs.index')->with([
-            'jobs' => $jobs,
-        ]);
+    $job = Job::create($request->validated());
+    if ($request->has('photo')) {
+        $job->addMediaFromRequest('photo')->toMediaCollection('photos');
     }
+    // Send notification email to eligible users
+    $users = User::where('employment_status', 'unemployed')
+                 ->get();
+    if ($users->isNotEmpty()) {
+        Mail::to($users)->send(new NewJobNotification($job));
+    }
+
+    $jobs = Job::paginate(10);
+
+    session()->flash('success', 'Record added');
+
+    return redirect()->route('jobs.index')->with([
+        'jobs' => $jobs,
+    ]);
+}
+
 
 
     /**

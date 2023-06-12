@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
     <style>
         body {
             background-image: url('http://minsu.edu.ph/template/images/slides/slides_2.jpg');
@@ -26,6 +27,7 @@
             border-top-left-radius: 8px;
             height: 100vh !important;
         }
+        
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
